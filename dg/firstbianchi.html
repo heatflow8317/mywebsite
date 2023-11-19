@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href="..">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+    <title>Ricci Flow</title>
+</head>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    * {box-sizing: border-box;}
+    
+    .header {
+      overflow: hidden;
+      background-color: #ffffff;
+      padding: 20px 10px;
+    }
+    
+    .header a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px; 
+      line-height: 25px;
+      border-radius: 4px;
+    }
+    
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    
+    .header a:hover {
+      background-color: #ffffff;
+      color: black;
+    }
+    
+    .header a.active {
+      background-color: #00CED1;
+      color: black;
+    }
+    
+    .header-right {
+      float: right;
+    }
+    
+    @media screen and (max-width: 500px) {
+      .header a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+      
+      .header-right {
+        float: none;
+      }
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="header">
+      <a href="#default" class="logo">Math Revision Site</a>
+      <div class="header-right">
+        <a href="dg/firstbianchi.html">Prev: Normal coordinates</a>
+        <a class="active" href="dg/dg.html">Back to Differential Geometry</a>
+        <a href="dg/secondbianchi.html">Next: Second Bianchi Identity </a>
+      </div>
+    </div>
+
+<body>
+    <table>
+      <tr>
+        <td>
+          <h4>
+            First Bianchi Identity: the statement
+          </h4>
+      </tr>
+      <tr>
+        <td>
+            \[R^l_{ijk}+R^l_{jki}+R^l_{kij}=0\]
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h4>
+            Proof
+          </h4>
+        </td>
+      </tr>
+      <tr>
+        <td>
+              In normal coordinates, we have
+              \[R^l_{ijk}=\partial_i \Gamma^l_{jk}-\partial_j \Gamma^l_{ik}.\]
+              The given LHS is equal to
+              \[\partial_i \Gamma^l_{jk}-\partial_j \Gamma^l_{ik}+
+              \partial_j \Gamma^l_{ki}-\partial_k \Gamma^l_{ji}+
+              \partial_j \Gamma^l_{ij}-\partial_i \Gamma^l_{kj}=0.\] 
+        </td>
+      </tr>
+    </table>
+
+    <footer>
+        Geometric Analysis
+        &nbsp;|&nbsp; A Math Revision Notes made by <a href="https://github.com/heatflow8317">Clive</a>
+    </footer>
+
+</body>
+</body>
+</html>

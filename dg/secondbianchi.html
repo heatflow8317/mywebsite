@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href="..">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+    <title>Ricci Flow</title>
+</head>
+
+<body>
+    <table>
+      <tr>
+        <td>
+          <h4>
+            Second Bianchi Identity: the statement
+          </h4>
+      </tr>
+      <tr>
+        <td>
+            \[\nabla_p R_{ijkl}+\nabla_i R_{jpkl}+\nabla_j R_{pikl}=0\]
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <h4>
+            Proof
+          </h4>
+        </td>
+      </tr>
+      <tr>
+        <td>
+              In normal coordinates, we have
+              \[
+              \nabla_mR_{ijkl}=\partial_m(\partial_i\Gamma^k_{jl}-\partial_j \Gamma^k_{il})
+                = \partial_m \partial_i \Gamma^k_{jl}-\partial_m \partial_j \Gamma^k_{il}
+              \]
+              and therefore the given LHS is equal to
+              \[
+              \partial_m \partial_i \Gamma^k_{jl}-\partial_m \partial_j \Gamma^k_{il}+
+              \partial_i \partial_j \Gamma^k_{ml}-\partial_i \partial_m \Gamma^k_{jl}+
+              \partial_j \partial_m \Gamma^k_{il}-\partial_j \partial_i \Gamma^k_{ml}=0
+              \]
+        </td>
+      </tr>
+    </table>
+
+    <footer>
+        Geometric Analysis
+        &nbsp;|&nbsp; A Math Revision Notes made by <a href="https://github.com/heatflow8317">Clive</a>
+    </footer>
+
+</body>
+</body>
+</html>
