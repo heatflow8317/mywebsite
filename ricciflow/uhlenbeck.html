@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href="..">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+    <title>Ricci Flow</title>
+</head>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    * {box-sizing: border-box;}
+    
+    .header {
+      overflow: hidden;
+      background-color: #ffffff;
+      padding: 20px 10px;
+    }
+    
+    .header a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px; 
+      line-height: 25px;
+      border-radius: 4px;
+    }
+    
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    
+    .header a:hover {
+      background-color: #ffffff;
+      color: black;
+    }
+    
+    .header a.active {
+      background-color: #00CED1;
+      color: black;
+    }
+    
+    .header-right {
+      float: right;
+    }
+    
+    @media screen and (max-width: 500px) {
+      .header a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+      
+      .header-right {
+        float: none;
+      }
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="header">
+        <a class="active" href="index.html#experience">Back to Website</a>
+    </div>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <h4>Uhlenbeck's trick: the statement</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                The evolution of curvature has the following ugly expression:
+                \[\partial_t R_{ijkl}=\Delta R_{ikjl} + 2(B_{ijkl}-B_{ijlk}-B_{iljk}+B_{ikjl})-(R^p_iR_{pjkl}+R^p_j{ipkl}+R^p_kR_{ijpl}+R^p_lR_{ijkp}).\]
+                While one can simplify it with the \(*\) notation and write 
+                \[(\partial_t-\Delta) Rm=Rm * Rm-Rc * Rm\]
+                instead, it is actually doing nothing. Alternatively, let \((V,h)\) be a vector bundle and \(u_0:(V,h)\rightarrow (TM, g_0)\) 
+                be a bundle isometry. We claim that \(u(t): (V,h)\rightarrow (TM, g(t))\) given by 
+                \[
+                \begin{align} 
+                u(0)&=u_0;\\
+                \partial_t u^i_a &= R^i_lu^l_a
+                \end{align}
+                \]
+                remains an isometry along the flow, and
+                \[\partial_t R_{abcd}=\Delta R_{abcd} +2(B_{abcd}-B_{abdc}+B_{acbd}-B_{adbc}).\]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>
+                    Proof
+                </h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                \(\partial_t (u(t)^*g(t))_{ab}=\partial_t (u^i_au^j_b g_{ij})=
+                R^i_lu^l_au^j_bg_{ij}+u^i_au^j_b g_{ij} -2 u^i_au^j_bR_{ij}=R_{ab}+R_{ab}-2R_{ab}=0\),
+                so \(u(t)^*g(t)=u(0)g(0)=h\) for all \(t\). This shows that \(u(t)\) is an isometry for all \(t\). Further, we have
+                \[
+                \begin{align} 
+                    \partial_i R_{abcd} &= \partial_t (u^i_au^j_bu^k_cu^l_d R_{ijkl})\\
+                    &= \sum_{cyc\{a,b,c,d\}} R^i_mu^m_au^j_bu^k_cu^l_d R_{ijkl} + u^i_au^j_bu^k_cu^l_d \partial_t R_{ijkl}\\
+                    &= \Delta R_{abcd} + 2(B_{abcd}-B_{abdc}+B_{acbd}-B_{adbc})
+                \end{align}
+                \]
+            </td>
+        </tr>
+    </table>
+
+    <footer>
+        Geometric Analysis
+        &nbsp;|&nbsp; A Math Revision Notes made by <a href="https://github.com/heatflow8317">Clive</a>
+    </footer>
+
+</body>
+</body>
+</html>

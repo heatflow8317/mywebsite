@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href="..">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+    <meta name="description" content="Conference Template">
+    <meta name="resource-type" content="document">
+    <meta name="distribution" content="global">
+    <meta name="KeyWords" content="Conference">
+    <title>Ricci Flow</title>
+</head>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    * {box-sizing: border-box;}
+    
+    .header {
+      overflow: hidden;
+      background-color: #ffffff;
+      padding: 20px 10px;
+    }
+    
+    .header a {
+      float: left;
+      color: black;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px; 
+      line-height: 25px;
+      border-radius: 4px;
+    }
+    
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    
+    .header a:hover {
+      background-color: #ffffff;
+      color: black;
+    }
+    
+    .header a.active {
+      background-color: #00CED1;
+      color: black;
+    }
+    
+    .header-right {
+      float: right;
+    }
+    
+    @media screen and (max-width: 500px) {
+      .header a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+      
+      .header-right {
+        float: none;
+      }
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="header">
+      <a href="#default" class="logo">Math Revision Site</a>
+      <div class="header-right">
+        <a href="ricciflow/deturck.html">Prev: Short-time Existence</a>
+        <a class="active" href="ricciflow/ricciflow.html">Back to Ricci Flow</a>
+        <a href="ricciflow/uhlenbeck.html">Next: Uhlenbeck's trick</a>
+      </div>
+    </div>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <h4>Parabolic Rescaling: the statement</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                
+                    Suppose \((M, g_t)\) is a Ricci flow on \(M\times I\). Let \(t\in [t_0-r^2,t_0]\subset I\) and \(\tilde{g}(\tilde{t})\) be the Ricci flow such that the following holds:
+            </td>
+        </tr>
+        <tr>
+            <td>
+                (1): \(\tilde{t}\in [-1,0]\)
+          </td>
+        </tr>
+        <tr>
+            <td>
+                (2): \(\tilde{g}(\tilde{t})=g(t)\); and
+            </td>
+        </tr>
+        <tr>
+            <td>
+                (3): \( \partial_{\tilde{t}} \tilde{g}(\tilde{t}) = -2 Ric_{\tilde{g}(\tilde{t})}\).
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Then we have
+                    \[\tilde{g}(\tilde{t})=\frac{1}{r^2}g(t_0 + r^2 \tilde{t}).\]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>Proof:</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                For any \(t\in [t_0-r^2, t_0]\) there exists a unique \(\tilde{t}\in [-1,0]\) such that
+                \[t=t_0+r^2\tilde{t}.\]
+                To be precise, we interpolate between the conditions: (i) when \(\tilde{t}=-1, t=t_0-r^2\) and (ii) when \(\tilde{t}=0, t=t_0\). This gives a straight line on the \(t-\tilde{t}\) plane
+                \[\frac{\tilde{t}}{t-t_0}=\frac{-1-0}{t_0-r^2-t_0}=\frac{1}{r^2}.\]
+                Hence \( r^2 \tilde{t}=t-t_0\) and \(t=t_0+r^2\tilde{t}\).
+            </td>
+        </tr>
+        <tr>
+            <td>
+                We suppose \(\tilde{g}(\tilde{t})=Cg(t)\) for some \(C\) independent of \(t\) and try to figure out \(C\).
+               \[
+               \begin{align}
+               \partial_{\tilde{t}} \tilde{g}(\tilde{t})&= -2Ric(\tilde{g}(\tilde{t}))\\
+               &= -2Ric(Cg(\frac{1}{r^2}(t-t_0)))\\
+               &= -2Ric(g(t))\\
+               &= \partial_t g(t)
+               \end{align}
+               \]
+               On the other hand,
+               \[
+               \begin{align} 
+                \partial_{\tilde{t}}\tilde{g}(\tilde{t})&= \partial_{\tilde{t}} Cg(t_0+r^2\tilde{t})\\
+                &= Cr^2 \partial_t g(t)
+               \end{align}
+               \]
+               This forces \(Cr^2=1\) and therefore \(C=\frac{1}{r^2}\), so 
+               \[\tilde{g}(\tilde{t})=\frac{1}{r^2}g(t_0 + r^2 \tilde{t}).\]
+            </td>
+        </tr>
+    </table>
+
+    <footer>
+        Geometric Analysis
+        &nbsp;|&nbsp; A Math Revision Notes made by <a href="https://github.com/heatflow8317">Clive</a>
+    </footer>
+
+</body>
+</body>
+</html>

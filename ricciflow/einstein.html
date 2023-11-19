@@ -75,12 +75,13 @@
       <tr>
         <td>
           <h4>
-            Second Bianchi Identity: the statement
+            Einstein metric
           </h4>
       </tr>
       <tr>
         <td>
-            \[\nabla_p R_{ijkl}+\nabla_i R_{jpkl}+\nabla_j R_{pikl}=0\]
+          Let \((M, g)\) be Einstein. If \(dim M\geq 3\) then \((M,g)\) has constant scalar curvature. 
+          Further, if \(dim M=3\), then \((M,g)\) has constant sectional curvature.
         </td>
       </tr>
       <tr>
@@ -92,17 +93,33 @@
       </tr>
       <tr>
         <td>
-              In normal coordinates, we have
-              \[
-              \nabla_mR_{ijkl}=\partial_m(\partial_i\Gamma^k_{jl}-\partial_j \Gamma^k_{il})
-                = \partial_m \partial_i \Gamma^k_{jl}-\partial_m \partial_j \Gamma^k_{il}
-              \]
-              and therefore the given LHS is equal to
-              \[
-              \partial_m \partial_i \Gamma^k_{jl}-\partial_m \partial_j \Gamma^k_{il}+
-              \partial_i \partial_j \Gamma^k_{ml}-\partial_i \partial_m \Gamma^k_{jl}+
-              \partial_j \partial_m \Gamma^k_{il}-\partial_j \partial_i \Gamma^k_{ml}=0
-              \]
+              By the <a href="dg/contractbianchi.html">contracted Bianchi identity</a>, 
+              \[g^{ij}\nabla_i R_{jp}= \frac{1}{2} \nabla_p R\]
+              Put \(E_{jp}=R_{jp}-\frac{1}{n}Rg_{jp}\) we obtain
+              \[g^{ij}\nabla_i E_{jp}=g^{ij}\nabla_i\left( R_{jp}-\frac{1}{n}Rg_{jp}\right)
+              =\frac{1}{2}\nabla_pR-\frac{1}{n}\nabla_i \delta^i_p R=\frac{1}{2}\nabla_pR-\frac{1}{n}
+              \nabla_pR=\left(\frac{1}{2}-\frac{1}{n}\right)\nabla_pR.\]
+              For \(n\geq 3\), the LHS is 0 if and only if \(R=0\).
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Besides, when \(n=3\), we can find a basis such that \(Rc\) is diagonal and \(E=0\) gives \(Rc=\frac{R}{3}g\).
+          \[Rc=\frac{1}{2}
+          \left(\begin{array}{ccc}
+          \lambda_2+\lambda_3&0&0\\
+          0&\lambda_3+\lambda_1&0\\
+          0&0&\lambda_1+\lambda_2
+          \end{array}\right)
+          =\frac{R}{3}g\\
+          =
+          \left(\begin{array}{ccc}
+          \frac{R}{3}&0&0\\
+          0&\frac{R}{3}&0\\
+          0&0&\frac{R}{3}
+          \end{array}\right)
+          \]
+          this forces \(\lambda_1=\lambda_2=\lambda_3=R\) and hence constant sectional curvature.
         </td>
       </tr>
     </table>

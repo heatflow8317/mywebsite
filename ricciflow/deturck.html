@@ -72,39 +72,24 @@
 
 <body>
     <table>
-      <tr>
-        <td>
-          <h4>
-            Second Bianchi Identity: the statement
-          </h4>
-      </tr>
-      <tr>
-        <td>
-            \[\nabla_p R_{ijkl}+\nabla_i R_{jpkl}+\nabla_j R_{pikl}=0\]
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h4>
-            Proof
-          </h4>
-        </td>
-      </tr>
-      <tr>
-        <td>
-              In normal coordinates, we have
-              \[
-              \nabla_mR_{ijkl}=\partial_m(\partial_i\Gamma^k_{jl}-\partial_j \Gamma^k_{il})
-                = \partial_m \partial_i \Gamma^k_{jl}-\partial_m \partial_j \Gamma^k_{il}
-              \]
-              and therefore the given LHS is equal to
-              \[
-              \partial_m \partial_i \Gamma^k_{jl}-\partial_m \partial_j \Gamma^k_{il}+
-              \partial_i \partial_j \Gamma^k_{ml}-\partial_i \partial_m \Gamma^k_{jl}+
-              \partial_j \partial_m \Gamma^k_{il}-\partial_j \partial_i \Gamma^k_{ml}=0
-              \]
-        </td>
-      </tr>
+        <tr>
+            <td>
+                <h4>DeTurck's Trick: the statement</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Given any Ricci flow \((M, g)\), the induced Ricci-Deturck flow (as an equation in \(\bar{g}\))
+                \[\partial_t \bar{g}_{ij} = -2Ric(\bar{g})_{ij}+\nabla_iW_j+\nabla_jW_i\]
+                is strictly parabolic, where \(W^k=g^{pq}(\Gamma^k_{pq}-\tilde{\Gamma}^k_{pq})\) 
+                for some fixed background metric \(\tilde{g}\) and the Chiristoffel symbol \(\tilde{\Gamma}\) is determined by \(\nabla^{LC}(\tilde{g})\).
+            </td>
+        </tr>
+        <tr>
+          <td>
+            Moreover, this implies that the Ricci Flow equation always have short time existence.
+          </td>
+        </tr>
     </table>
 
     <footer>
