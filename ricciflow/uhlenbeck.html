@@ -11,59 +11,73 @@
 </head>
 
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-    * {box-sizing: border-box;}
-    
-    .header {
-      overflow: hidden;
-      background-color: #ffffff;
-      padding: 20px 10px;
-    }
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  * {box-sizing: border-box;}
+  
+  .header {
+    overflow: hidden;
+    background-color: #0a0d1d;
+    padding: 20px 10px;
+  }
+  
+  .header a {
+    float: left;
+    color: #050d38;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .header a:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .header a.active {
+    background-color: #00baff;
+    color: black;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  
+  @media screen and (max-width: 500px) {
     .header a {
-      float: left;
-      color: black;
-      text-align: center;
-      padding: 12px;
-      text-decoration: none;
-      font-size: 18px; 
-      line-height: 25px;
-      border-radius: 4px;
-    }
-    
-    .header a.logo {
-      font-size: 25px;
-      font-weight: bold;
-    }
-    
-    .header a:hover {
-      background-color: #ffffff;
-      color: black;
-    }
-    
-    .header a.active {
-      background-color: #00CED1;
-      color: black;
+      float: none;
+      display: block;
+      text-align: left;
     }
     
     .header-right {
-      float: right;
+      float: none;
     }
-    
-    @media screen and (max-width: 500px) {
-      .header a {
-        float: none;
-        display: block;
-        text-align: left;
-      }
-      
-      .header-right {
-        float: none;
-      }
-    }
-    </style>
-    </head>
+  }
+
+  body{
+  background-color: #0a0d1d;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #ffffff; 
+  text-align:left;
+  font-family:'Comic Sans MS';
+  /*font-family:'Roboto',sans-serif;*/
+  font-size:1em;
+  line-height:1.5em;
+  margin: 60px auto;
+  width: 1000px;
+  }
+  </style>
+  </head>
     <body>
     
     <div class="header">

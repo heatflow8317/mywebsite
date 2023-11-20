@@ -17,13 +17,13 @@
     
     .header {
       overflow: hidden;
-      background-color: #ffffff;
+      background-color: #0a0d1d;
       padding: 20px 10px;
     }
     
     .header a {
       float: left;
-      color: black;
+      color: #050d38;
       text-align: center;
       padding: 12px;
       text-decoration: none;
@@ -43,7 +43,7 @@
     }
     
     .header a.active {
-      background-color: #00CED1;
+      background-color: #00baff;
       color: black;
     }
     
@@ -61,6 +61,20 @@
       .header-right {
         float: none;
       }
+    }
+
+    body{
+    background-color: #0a0d1d;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #ffffff; 
+    text-align:left;
+    font-family:'Comic Sans MS';
+    /*font-family:'Roboto',sans-serif;*/
+    font-size:1em;
+    line-height:1.5em;
+    margin: 60px auto;
+    width: 1000px;
     }
     </style>
     </head>
@@ -80,7 +94,7 @@
         <tr>
             <td>
                 Let \(Rm\) works like a section of \(\mathcal{E}=Sym^2(\wedge^2 T^*M)\) as follows: 
-                for any \(\phi, \psi\in \mathcal{E}\), define
+                for any \(\phi, \psi\in \wedge^2 T^*M\), define
                 \[Rm(\phi, \psi)=R_{ijlk}\phi^{ij}\psi^{kl}.\]
                 Uhlenbeck's trick tells us
                 \[(*): \partial_t R_{abcd}=2(B_{abcd}-B_{abdc}+B_{acbd}-B_{adbc})\]
