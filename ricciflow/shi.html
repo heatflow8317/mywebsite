@@ -94,7 +94,12 @@
       </tr>
       <tr>
         <td>
-            \[R^l_{ijk}+R^l_{jki}+R^l_{kij}=0\]
+            Let \( (M^n, g(t))\) be a Ricci flow and \(M\) closed. For each \( \alpha>0, m\in \mathbb{N}\) there exists
+            a constant \(C_m=C(m,n,\max\{\alpha, 1\})\) such that if 
+            \[|Rm(x,t)|_{g(t)}\leq K\]
+            for all \(t\in [0,\frac{\alpha}{K}]\), then
+            \[|\nabla^m Rm(x,t)|_{g(t)}\leq \frac{C_mK}{t^{m/2}}\]
+            for all \(t\in [0,\frac{\alpha}{K}]\).
         </td>
       </tr>
       <tr>
@@ -102,16 +107,6 @@
           <h4>
             Proof
           </h4>
-        </td>
-      </tr>
-      <tr>
-        <td>
-              In normal coordinates, we have
-              \[R^l_{ijk}=\partial_i \Gamma^l_{jk}-\partial_j \Gamma^l_{ik}.\]
-              The given LHS is equal to
-              \[\partial_i \Gamma^l_{jk}-\partial_j \Gamma^l_{ik}+
-              \partial_j \Gamma^l_{ki}-\partial_k \Gamma^l_{ji}+
-              \partial_j \Gamma^l_{ij}-\partial_i \Gamma^l_{kj}=0.\] 
         </td>
       </tr>
     </table>
