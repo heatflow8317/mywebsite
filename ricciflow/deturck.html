@@ -85,26 +85,63 @@
     </div>
 
 <body>
-    <table>
-        <tr>
-            <td>
-                <h4>DeTurck's Trick: the statement</h4>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Given any Ricci flow \((M, g)\), the induced Ricci-Deturck flow (as an equation in \(\bar{g}\))
-                \[\partial_t \bar{g}_{ij} = -2Ric(\bar{g})_{ij}+\nabla_iW_j+\nabla_jW_i\]
-                is strictly parabolic, where \(W^k=g^{pq}(\Gamma^k_{pq}-\tilde{\Gamma}^k_{pq})\) 
-                for some fixed background metric \(\tilde{g}\) and the Chiristoffel symbol \(\tilde{\Gamma}\) is determined by \(\nabla^{LC}(\tilde{g})\).
-            </td>
-        </tr>
-        <tr>
-          <td>
-            Moreover, this implies that the Ricci Flow equation always have short time existence.
-          </td>
-        </tr>
-    </table>
+  <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
+    <h4 style="text-align:left;">DeTurck's trick<br> </h4>
+      <ul >
+        <li>Consider the Ricci flow equation 
+        \[\partial_t g_{ij} = -2 R_{ij}\]
+        By evolution of Ricci curvature, we have
+      \[D[-2Rc](h)=g^{pq}(\nabla_p \nabla_q h_{ij} + \nabla_i\nabla_j h_{pq}-\nabla_q\nabla_i h_{jp}-\nabla_q
+      \nabla_j h_{ip})\]
+      and our goal is to find a parabolic system
+      \[\partial_t \bar{g}_{ij}=P(\bar{g})\]
+      and a one parameter family of diffeomorphisms \(\varphi_t\) such that \(g=\varphi^*_t \bar{g}\) solves the Ricci flow.
+        </li>
+        <li>
+          Observe that given \(g=\varphi^*_t \bar{g}\) we actually have
+          \[\partial_t g = \partial_t \varphi^*_t \bar{g}=\varphi^*_t P(\bar{g}_t)+\varphi^*_t \mathcal{L}_{\partial_t 
+            \varphi_t}\bar{g}_t\]
+        </li>
+        <li>
+          Set up ODE: by ODE theory, solution \(\varphi_t\) exists once we found \(W\).
+          \[
+          \begin{align}
+            \partial_t \varphi_t &= W(t)\\
+            \varphi_0 &= id 
+          \end{align}
+          \]
+          then we have
+          \[-2\varphi^*_tRic(\bar{g})=\varphi^*_t P(\bar{g}_t)+\varphi^*_t \mathcal{L}_W\bar{g}_t\]
+          and hence 
+          \[-2Ric(\bar{g})=P(\bar{g}_t)+\mathcal{L}_W\bar{g}_t\]
+          In other words, the Ricci curvature operator differs from a (strictly) parabolic operator by a Lie derivative.
+        </li>
+        <li>
+          Below, we work on \(\bar{g}\) but omit the bar due to laziness. Calculate:
+          \[
+          \begin{align} 
+          &\hspace{0.7cm} g^{pq}(\nabla_p \nabla_q h_{ij} + \nabla_i\nabla_j h_{pq}-\nabla_q\nabla_i h_{jp}-\nabla_q\nabla_j h_{ip})\\
+          &= g^{pq}\bigg(\nabla_p \nabla_q h_{ij} + \frac{1}{2}\nabla_i\nabla_j h_{pq}-\nabla_i\nabla_q h_{jp}\\
+          &\hspace{3.6cm} + \frac{1}{2}\nabla_j\nabla_i h_{pq}-\nabla_j\nabla_q h_{ip}\bigg) + L.O.T.\\
+          &= g^{pq} \bigg( \nabla_p\nabla_qh_{ij} + \nabla_i \bigg( \frac{1}{2}\nabla_j h_{pq}-\nabla_q h_{jp}\bigg) \\
+          &\hspace{3.7cm} +\nabla_j \bigg( \frac{1}{2}\nabla_i h_{pq}-\nabla_q h_{ip}\bigg) \bigg) + L.O.T. \\
+          &= g^{pq}\nabla_p\nabla_qh_{ij}\\
+          &\hspace{1cm} - g^{pq}\nabla_i \bigg( \frac{1}{2}\bigg) \bigg(\nabla_q h_{jp}+\nabla_ph_{jq}-\nabla_j h_{pq}\bigg) \\
+          &\hspace{1cm} - g^{pq}\nabla_j \bigg( \frac{1}{2}\bigg) \bigg(\nabla_q h_{ip}+\nabla_ph_{iq}-\nabla_i h_{pq}\bigg) + L.O.T. \\
+          &= g^{pq}\nabla_p\nabla_qh_{ij} -\nabla_i \Gamma^l_{pq}(h)g_{lj}g^{pq}-\nabla_j \Gamma^l_{pq}(h)g_{li}g^{pq} +L.O.T.\\
+          &= g^{pq}\nabla_p\nabla_qh_{ij} + D[\nabla_i W_j - \nabla_j W_i](h)+L.O.T.\\
+          &= D[P](h)+ D[\nabla_i W_j - \nabla_j W_i](h)+L.O.T.
+          \end{align}
+          \]
+          if we define \(W_i=-g^{pq}g_{ij}(\Gamma^j_{pq}-\tilde{\Gamma}^j_{pq})\) and \(P\) be Laplacian.
+        </li>
+        <li>
+          The tilde term serves for making \(W\) tensorial and only contributes to the lower order terms.
+        </li>
+        <li>Now we have \(\bar{g}\), which gives \(W\), followed by \(\varphi_t\), finally \(g\) for the Ricci flow.</li>
+        <li>Short time existence of RF follows from standard parabolic theory.</li>
+      </ul>
+  </div>
 </body>
 </body>
 </html>
