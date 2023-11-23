@@ -93,11 +93,99 @@
           </h4>
         </li>
         <li>
-          Given a \(2\times 2\) matrix \(A=\left(\begin{array}{ccc}a&b\\c&d\end{array}\right)\),
+          Given a \(2\times 2\) real matrix \(A=\left(\begin{array}{cc}a&b\\c&d\end{array}\right)\), 
+          suppose \(\lambda_1, \lambda_2\) are the roots (not necessarily distinct) of the equation
+          \[det(A-\lambda I)=0\]
+          then we can pick any non-zero vectors \(v_1, v_2\) such that \(Av_i=\lambda_iv_i\) respectively. Define
+          \[P=\left(\begin{array}{cc}|&|\\v_1&v_2\\|&|\end{array}\right)\]
+          then we have
+          \[A=PDP^{-1}\]
+          where \(D=\left(\begin{array}{cc}\lambda_1&0\\0&\lambda_2\end{array}\right)\).
         </li>
       </ul>
     </div>
-
+    <div>
+      <ul style="list-style-type:none;">
+        <li>
+          <h4>
+            Basic Explanation:
+          </h4>
+        </li>
+        <li>
+          The equation \(det(A-\lambda I)=0\) can be re-written into 
+          \[
+          \begin{align} 
+          det \left(\begin{array}{cc}a-\lambda&b\\c&d-\lambda\end{array}\right)
+          &= 0\\
+          (a-\lambda)(d-\lambda)-bc&=0\\
+          \lambda^2 - (a+d)\lambda +ad - bc &=0
+          \end{align}
+          \]
+          whenever the discriminant \(\Delta = (a+d)^2-4(ad-bc)=(a-d)^2+bc\geq 0\), this quadratic equation
+          has two real roots (probably repeating) and we say that \(A\) has (only) real eigenvalues. We do not consider
+          the case of complex eigenvalues here.
+        </li>
+        <li>
+          <h4>
+            Example: 
+          </h4>
+        </li>
+        <li>
+          Consider the matrix \(A=\left(\begin{array}{cc}1&0\\2&4\end{array}\right)\). 
+          \[det\left(\begin{array}{cc}1-\lambda&0\\2&4-\lambda\end{array}\right)=(1-\lambda)(4-\lambda)\]
+          so the eigenvalues of \(A\) are \(\lambda_1=1, \lambda_2=4\) respectively.
+        </li>
+        <li>
+          Let \(v_1=\left(\begin{array}{c}x\\y\end{array}\right)\) be a vector such that \(Av_1=\lambda_1v_1=1v_1=v_1\). Then we actually
+          have
+          \[\left(\begin{array}{cc}1&0\\2&4\end{array}\right)\left(\begin{array}{c}x\\y\end{array}\right)=
+          \left(\begin{array}{c}x\\y\end{array}\right)\]
+          By theory in system of linear equations, the above system is equivalent to 
+          \[\left(\begin{array}{cc}0&0\\2&3\end{array}\right)\left(\begin{array}{c}x\\y\end{array}\right)=
+          \left(\begin{array}{c}0\\0\end{array}\right)\]
+          We can choose \(x=-3,y=2\). In this way we obtain a choice for \(v_1\).
+        </li>
+        <li>
+          Similarly, the problem of finding \(v_2\) reduces to solving
+          \[\left(\begin{array}{cc}-3&0\\2&0\end{array}\right)\left(\begin{array}{c}x\\y\end{array}\right)=
+          \left(\begin{array}{c}0\\0\end{array}\right)\]
+          and by observation \(x=0,y=1\) provides a solution.
+        </li>
+        <li>
+          Write
+          \[P=\left(\begin{array}{cc}-3&0\\2&1\end{array}\right)\]
+          then we have
+          \[A=\left(\begin{array}{cc}1&0\\2&4\end{array}\right)=\left(\begin{array}{cc}-3&0\\2&1\end{array}\right)
+          \left(\begin{array}{cc}1&0\\0&4\end{array}\right)\left(\begin{array}{cc}-3&0\\2&1\end{array}\right)^{-1}\]
+        </li>
+        <li>
+          <h4>
+            The theory behind:
+          </h4>
+        </li>
+        <li>
+          \(\gamma=\{v_1, v_2\}\) forms an eigenbasis for \(\mathbb{R}^2\). Denote \(\beta\) the standard basis then
+          \(P=[I]^\gamma_\beta\)
+          where \(I\) is the identity transformation on \(\mathbb{R}^2\) and we are expressing \([I]_\gamma\) 
+          in terms of \(\beta\). 
+        </li>
+        <li>
+          As a quick reminder, given a vector representation \([v]_\beta\) in \(\beta\) we can representation it 
+          in \(\gamma\) by 
+          \[[v]_\gamma=[I]^\gamma_\beta [v]_\beta.\]
+        </li>
+        <li>
+          We have \(AP=PD\) according to the following commutative diagram:
+          $$\require{AMScd}
+            \begin{CD}
+            \left[\mathbb{R}^2\right]_\beta @>{A}>> \left[\mathbb{R}^2\right]_\beta\\
+            @V{P}VV @V{P}VV \\
+            \left[\mathbb{R}^2\right]_\gamma @>{D}>> \left[\mathbb{R}^2\right]_\gamma
+            \end{CD}$$
+          The same philosophy applies to general vector spaces of finite dimension.
+        </li>
+      </ul>
+    </div>
 </body>
 </body>
 </html>
