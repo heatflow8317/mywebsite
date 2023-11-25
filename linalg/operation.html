@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href="..">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+     <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({ TeX: { extensions: ["AMSmath.js"] }});
+    </script>
+    <title>Row and Column operations</title>
+</head>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  * {box-sizing: border-box;}
+  
+  .header {
+    overflow: hidden;
+    background-color: #f8f8f885;
+    padding: 20px 10px;
+  }
+  
+  .header a {
+    float: left;
+    color: #050d38;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .header a:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .header a.active {
+    background-color: #00baff;
+    color: black;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    
+    .header-right {
+      float: none;
+    }
+  }
+
+  body{
+  background-color: #f8f8f885;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #000000; 
+  text-align:left;
+  font-family:'Comic Sans MS';
+  /*font-family:'Roboto',sans-serif;*/
+  font-size:16pt;
+  line-height:1.5em;
+  margin: 60px auto;
+  width: 1000px;
+  }
+  </style>
+  </head>
+    <body>
+    
+    <div class="header">
+        <a class="active" href="index.html#notes">Back to Website</a>
+    </div>
+
+<body>
+    <div>
+      <ul style="list-style-type:none;">
+        <li>
+          <h4>
+            Row and Column operations
+          </h4>
+        </li>
+        <li>
+            Suppose we have a sequence of row operations joining two matrices \(A\) and \(B\):
+            $$\require{AMScd}
+            \begin{CD}
+            A @>{\rho_1}>> @>{\rho_2}>> @>{\ldots}>> @>{\rho_n}>> B
+            \end{CD}$$
+            where we recall the three types of row operations:
+            <ul>
+              <li>
+                Row swap: \(R_i \leftrightarrow R_j\).
+              </li>
+              <li>
+                Scaling: \(R_i \rightarrow kR_i\) for some \(k\neq 0\).
+              </li>
+              <li>
+                Row sum: \(R_i \rightarrow kR_j + R_i\) for some \(k\neq 0\) and row index \(j\).
+              </li>
+            </ul>
+            <li>
+            <font color="red", size="2pt">
+              Remark: as in 2023-24, MATH1030
+              students at CUHK are not required to write down "\(R_i\rightarrow\)" for scaling and row sum.
+            </font>
+            </li>
+      </ul>
+    </div>
+    <div>
+      <ul style="list-style-type:none;">
+        <li>
+          <h4>Claim: </h4>
+          </li>
+          <li>
+            For each \(\rho_\alpha\) above, we can find a unique matrix \(H_\alpha\) such that the matrix resultant of 
+            \(A\) by \(\rho_\alpha\) is equal to \(H_\alpha A\). In other words, we have:
+            $$\require{AMScd}
+            \begin{CD}
+            A @>{\rho_1}>> H_1A @>{\rho_2}>> H_2H_1A @>{\ldots}>> @>{\rho_n}>> H_n\ldots H_2H_1A=B
+            \end{CD}$$
+          </li>
+          <li>
+            <h4>Proof of claim: </h4>
+            </li>
+            <li>
+              Fix \(A\) and denote by \(A'\) the matric resultant after we perform \(\rho_1=R_1\leftrightarrow R_2\). Then
+              \(A'_{1j}=A_{2j}, A'_{2j}=A_{1j}\) for all \(j\) and the other entries of \(A, A'\) are the same. 
+            </li>
+            <li>
+             Let \(H_1\) be \(I \xrightarrow{\rho_1} H_1\). Consider
+             \[
+             \begin{align}
+             [H_1A]_{1j} &= \sum^n_{k=1} [H_1]_{1k}A_{kj} \\
+              &= \sum^n_{k=1} I_{2k} A_{kj}\\
+              &= A_{2j}
+             \end{align}
+             \]
+             and similarly \([H_1A]_{2j}=A_{1j}\) for all row index \(j\).
+            </li>
+            <li>
+              The remaining proof is similar in the sense that we make use of matrix multiplication: 
+              \([AB]_{ij}=\sum^k_{i=1}A_{ik}B_{kj}.\)
+            </li>
+      </ul>
+    </div>
+    <div>
+      <ul>
+        <li>
+          The same philosophy can be applied to column operations, namely for any column operation \(\kappa\),
+           \(A\xrightarrow{\kappa} A'\) implies \(A'=KA\) where \(I\xrightarrow{\kappa}K\).
+        </li>
+        <li>
+          In this way we can interpret left multiplication by an invertible matrix as a finite sequence of row operations,
+          and right multiplication by an invertible matrix as a finite sequence of column operations.
+        </li>
+        <li>
+          Further, if we allow "zero-scaling" when defining operations, the interpretation above extends to (left or right)
+          multiplication by a singular matrix.
+        </li>
+        <li>
+          Finally we observe the following picture:
+          \[
+          \left[ 
+          \begin{array}{cc} 
+            1&2\\
+            3&4
+          \end{array}
+          \right]
+          \left[ 
+          \begin{array}{cc} 
+            \color{red}{5}&\color{blue}{6}\\
+            \color{green}7&\color{orange}8
+          \end{array}
+          \right]
+          =
+          \left[ 
+          \begin{array}{cc} 
+            19&22\\
+            43&50
+          \end{array}
+          \right]
+          =
+          \left[
+          \begin{array}{cc}
+          \color{red}{5}\left[ 
+          \begin{array}{c} 
+            1\\
+            3
+          \end{array}
+          \right]
+          +
+          \color{green}{7}\left[ 
+          \begin{array}{c} 
+            2\\
+            4
+          \end{array}
+          \right]
+          &
+          \color{blue}{6}\left[ 
+          \begin{array}{c} 
+            1\\
+            3
+          \end{array}
+          \right]
+          +
+          \color{orange}{8}\left[ 
+          \begin{array}{c} 
+            2\\
+            4
+          \end{array}
+          \right]
+          \end{array}
+          \right]
+          \]
+          \[
+          \left[ 
+          \begin{array}{cc} 
+            \color{red}{1}&\color{blue}{2}\\
+            \color{green}{3}&\color{orange}{4}
+          \end{array}
+          \right]
+          \left[ 
+          \begin{array}{cc} 
+            5&6\\
+            7&8
+          \end{array}
+          \right]
+          =
+          \left[ 
+          \begin{array}{cc} 
+            19&22\\
+            43&50
+          \end{array}
+          \right]
+          =
+          \left[
+          \begin{array}{c} 
+          \color{red}{1}\left[ 
+          \begin{array}{cc} 
+            5&6
+          \end{array}
+          \right]
+          +
+          \color{blue}{2}\left[ 
+          \begin{array}{cc} 
+            7&8
+          \end{array}
+          \right]\\
+          \color{green}{3}\left[ 
+          \begin{array}{c} 
+            5&6
+          \end{array}
+          \right]
+          +
+          \color{orange}{4}\left[ 
+          \begin{array}{cc} 
+            7&8
+          \end{array}
+          \right]
+          \end{array}
+          \right]
+          \]
+        </li>
+      </ul>
+    </div>
+</body>
+</body>
+</html>

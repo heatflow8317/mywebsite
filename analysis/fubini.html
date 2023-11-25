@@ -7,7 +7,10 @@
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
     </script>
-    <title>Ricci Flow</title>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ TeX: { extensions: ["AMSmath.js"] }});
+      </script>
+    <title>Fubini's Theorem</title>
 </head>
 
 <head>
@@ -89,18 +92,10 @@
       <ul style="list-style-type:none;">
         <li>
           <h4>
-            Shi estimate
+            Fubini's Theorem
           </h4>
         </li>
-        <li>
-          Let \( (M^n, g(t))\) be a Ricci flow and \(M\) closed. For each \( \alpha>0, m\in \mathbb{N}\) there exists
-            a constant \(C_m=C(m,n,\max\{\alpha, 1\})\) such that if 
-            \[|Rm(x,t)|_{g(t)}\leq K\]
-            for all \(t\in [0,\frac{\alpha}{K}]\), then
-            \[|\nabla^m Rm(x,t)|_{g(t)}\leq \frac{C_mK}{t^{m/2}}\]
-            for all \(t\in [0,\frac{\alpha}{K}]\).
-        </li>
-      </ul>
+    </ul>
     </div>
 
 </body>
