@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href="..">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ TeX: { extensions: ["AMSmath.js"] }});
+      </script>
+    <title>Volumne of n-ball</title>
+</head>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  * {box-sizing: border-box;}
+  
+  .header {
+    overflow: hidden;
+    background-color: #f8f8f885;
+    padding: 20px 10px;
+  }
+  
+  .header a {
+    float: left;
+    color: #050d38;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .header a:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .header a.active {
+    background-color: #00baff;
+    color: black;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    
+    .header-right {
+      float: none;
+    }
+  }
+
+  body{
+  background-color: #f8f8f885;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #000000; 
+  text-align:left;
+  font-family:'Comic Sans MS';
+  /*font-family:'Roboto',sans-serif;*/
+  font-size:16pt;
+  line-height:1.5em;
+  margin: 60px auto;
+  width: 1000px;
+  }
+  </style>
+  </head>
+    <body>
+    
+    <div class="header">
+        <a class="active" href="index.html#notes">Back to Website</a>
+    </div>
+
+<body>
+  <h4>
+    Volume of \(n\)-ball
+  </h4>
+    <div>
+      <ul style="list-style-type:none;">
+        <li>
+            The volume of \(n\)-dimensional ball with radius 1 is 
+            \[\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{1}{2}n+1)}.\]
+            For convenience we denote the solid ball by \(\mathbb{B}^n\) and its boundary by \(\partial \mathbb{B}^n=\mathbb{S}^{n-1}\).
+        </li>
+    </ul>
+    </div>
+    <div>
+        <ul style="list-style-type:none;">
+          <li>
+            <h4>
+              Proof.
+            </h4>
+        </li>
+        <li>
+            We parametrize the surface By
+            \[f(r, \theta_1, \theta_2, \ldots, \theta_{n-1})=(r\cos \theta_1, r\sin \theta_1 \cos \theta_2,
+            r\sin \theta_1 \sin \theta_2 \cos \theta_3, \ldots, r\sin \theta_1 \sin \theta_{n-2}\sin \theta_{n-1})\]
+            where \(r\in [0,1], \theta_1\in [0,2\pi), \theta_2,\ldots, \theta_{n-1}\in [0,\pi)\).
+            The metric, or the first fundamental form, is given by
+            \[g_{\mathbb{B}^n}=\left[ \begin{array}{ccccc}1&&&&\\
+                                                    &r^2\sin^2 \theta_1&&&\\
+                                                    &&r^2\sin^2\theta_1 \sin^2\theta_2&&\\
+                                                    &&&\ddots&\\
+                                                    &&&& r^2\sin^2 \theta_1 \sin^2\theta_2 \ldots \sin^2 \theta_{n-2} 
+                                                    \end{array}\right]\]
+        </li>
+        where \(g_{ij}=f_i\cdot f_j\) for  \(i,j=r, \theta_1, \theta_2, \ldots, \theta_{n-1}\), and hence the volume of \(\mathbb{B}^n\) is 
+        \[
+        \begin{align} 
+        |\mathbb{B}^n|&=\int^{2\pi}_0\int^\pi_0\ldots\int^\pi_0\int^1_0 r^nsin^n\theta_1
+        sin^{n-1}\theta_2\ldots\sin \theta_{n-2}\mathrm{d}r\mathrm{d}\theta \\
+        &= \frac{2\pi}{n}\prod^{n-2}_{m=1}\int^\pi_0\sin^m \theta\mathrm{d}\theta \\
+        &= \frac{2\pi}{n}\int^\pi_0\sin^{n-2}\theta\mathrm{d}\theta \int^\pi_0\sin^{n-3}\theta\mathrm{d}\theta
+        \prod^{n-4}_{m=1}\int^\pi_0\sin^m \theta\mathrm{d}\theta \\
+        &=\frac{2\pi}{n}\int^\pi_0\sin^{n-2}\theta\mathrm{d}\theta \int^\pi_0\sin^{n-3}\theta\mathrm{d}\theta
+        \frac{n-2}{2\pi}|\mathbb{B}^{n-2}|\\
+        &= \frac{n-2}{n}\left(\frac{n-3}{n-2}\frac{n-4}{n-3}\ldots\frac{1}{2}\pi\right)
+        \left(\frac{n-4}{n-3}\frac{n-5}{n-4}\ldots\frac{2}{3}2\right)|\mathbb{B}^{n-2}|\\
+        &=\frac{2\pi}{n}|\mathbb{B}^{n-2}|
+        \end{align}
+        \]
+        The same recurrence relation is satisfied by
+        \[\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n}{2}+1)}\]
+        where \(\Gamma(s)=\int^\infty_0 t^{s-1}e^{-t}\mathrm{d} t \), so we have
+        \[|\mathbb{B}^n|=\alpha(n).\]
+    </ul>
+    We denote \(\omega(n)=|\mathbb{S}^{n-1}\subset \mathbb{R}^n|=|\partial \mathbb{B}^n|=n\alpha(n)\) and this is derived from scaling and differentiation.
+    </div>
+</body>
+</body>
+</html>
