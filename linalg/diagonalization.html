@@ -96,7 +96,8 @@
           Given a \(2\times 2\) real matrix \(A=\left(\begin{array}{cc}a&b\\c&d\end{array}\right)\), 
           suppose \(\lambda_1, \lambda_2\) are the roots (not necessarily distinct) of the equation
           \[det(A-\lambda I)=0\]
-          then we can pick any non-zero vectors \(v_1, v_2\) such that \(Av_i=\lambda_iv_i\) respectively. Define
+          then we can pick any non-zero vectors \(v_1, v_2\) such that \(Av_i=\lambda_iv_i\) respectively (if
+          \(\lambda_1=\lambda_2\) then we also require \(v_1, v_2\) linearly independent). Define
           \[P=\left(\begin{array}{cc}|&|\\v_1&v_2\\|&|\end{array}\right)\]
           then we have
           \[A=PDP^{-1}\]
@@ -183,6 +184,22 @@
             \left[\mathbb{R}^2\right]_\gamma @>{D}>> \left[\mathbb{R}^2\right]_\gamma
             \end{CD}$$
           The same philosophy applies to general vector spaces of finite dimension.
+        </li>
+        <li>
+          <h4>
+            Remark on why we can choose \(v_i\) freely: 
+          </h4>
+          When \(v\) satisfies \(Av=\lambda v\), the natural way to find another solution is to pick \(kv\) for some
+          non-zero constant \(k\). An alternative solution \(w\), linearly independent to \(v\), is only possible when the nullity
+          of \(A-\lambda I\) is higher than 1. But as we need to keep the columns of \(P\) linearly independent, we
+          cannot choose \(v, v+w\) at the same time when constructing \(P\). 
+        </li>
+        <li>
+          Suppose \(P, \tilde{P}\) are two matrices found by the same steps but different choices of \(v_i\), we know that
+          \(P, \tilde{P}\) can differ by column swap and column scaling only. That is, \(\tilde{P}=PK\) for some matrix 
+          \(K\) symbolizing column swap and column scaling. The conjugate action by such \(K\) preserves any diagonal matrix
+          \(D\), i.e. \(KDK^{-1}=D\) for any diagonal matrix \(D\), so we have
+          \[\tilde{P}D\tilde{P}^{-1}=PKDK^{-1}P^{-1}=PDP^{-1}.\]
         </li>
       </ul>
     </div>
