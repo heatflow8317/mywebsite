@@ -123,8 +123,8 @@
         where \(g_{ij}=f_i\cdot f_j\) for  \(i,j=r, \theta_1, \theta_2, \ldots, \theta_{n-1}\), and hence the volume of \(\mathbb{B}^n\) is 
         \[
         \begin{align} 
-        |\mathbb{B}^n|&=\int^{2\pi}_0\int^\pi_0\ldots\int^\pi_0\int^1_0 r^nsin^n\theta_1
-        sin^{n-1}\theta_2\ldots\sin \theta_{n-2}\mathrm{d}r\mathrm{d}\theta \\
+        |\mathbb{B}^n|&=\int^{2\pi}_0\int^\pi_0\ldots\int^\pi_0\int^1_0 r^nsin^{n-2}\theta_1
+        sin^{n-3}\theta_2\ldots\sin \theta_{n-2}\mathrm{d}r\mathrm{d}\theta \\
         &= \frac{2\pi}{n}\prod^{n-2}_{m=1}\int^\pi_0\sin^m \theta\mathrm{d}\theta \\
         &= \frac{2\pi}{n}\int^\pi_0\sin^{n-2}\theta\mathrm{d}\theta \int^\pi_0\sin^{n-3}\theta\mathrm{d}\theta
         \prod^{n-4}_{m=1}\int^\pi_0\sin^m \theta\mathrm{d}\theta \\
