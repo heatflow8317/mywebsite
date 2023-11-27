@@ -189,16 +189,67 @@
           <h4>
             Remark on why we can choose \(v_i\) freely: 
           </h4>
-          When \(v\) satisfies \(Av=\lambda v\), the natural way to find another solution is to pick \(kv\) for some
-          non-zero constant \(k\). An alternative solution \(w\), linearly independent to \(v\), is only possible when the nullity
-          of \(A-\lambda I\) is higher than 1. But as we need to keep the columns of \(P\) linearly independent, we
-          cannot choose \(v, v+w\) at the same time when constructing \(P\). 
         </li>
         <li>
-          Suppose \(P, \tilde{P}\) are two matrices found by the same steps but different choices of \(v_i\), we know that
-          \(P, \tilde{P}\) can differ by column swap and column scaling only. That is, \(\tilde{P}=PK\) for some matrix 
-          \(K\) symbolizing column swap and column scaling. The conjugate action by such \(K\) preserves any diagonal matrix
-          \(D\), i.e. \(KDK^{-1}=D\) for any diagonal matrix \(D\), so we have
+          Suppose \(P, \tilde{P}\) are two matrices found by the same steps but different choices \(\tilde{v}_i\) from \(v_i\)
+          we have \(\tilde{P}=PK\) for some matrix 
+          \(K\) symbolizing some column operations. 
+        </li>
+        <li>
+          However \(K\) is very special: whenever \(K\) symbolizes a column sum, that column sum must involve vectors from the same 
+          eigenspace of dimension higher than 1.
+        </li>
+        <li>
+          For example, if \(D\) looks like 
+          \[\tilde{D}=\left(\begin{array}{ccc}\lambda_1&0&0\\0&\lambda_2&0\\0&0&\lambda_2\end{array}\right)\]
+          and \(\tilde{D}\) looks like
+          \[\tilde{D}=\left(\begin{array}{ccc}\lambda_2&0&0\\0&\lambda_2&0\\0&0&\lambda_1\end{array}\right)\]
+          then \(K\) is a block matrix
+          \[K=\left(\begin{array}{ccc}0&0&1\\*&*&0\\*&*&0\end{array}\right)\]
+        </li>
+        <li>
+          More concretely, suppose \(A\) is a \(3\times 3\) square matrix with eigenvalues \(\lambda_1, \lambda_2, \lambda_3=\lambda_2\).
+          This means \(\lambda_2\) is an eigenvalue of algebraic multiplicity 2, equivalently the factor \((\lambda-\lambda_2)^2\)
+          has degree 2 in the characteristic polynomial of \(A\).
+        </li>
+        <li>
+          Further suppose \(u_1, u_2, u_3\) are first chosen such that \(Au_1=\lambda_1u_1, Au_2=\lambda_2u_2, Au_3=\lambda_2u_3\).
+          Also, \(u_2, u_3\) are linearly independent, in the sense that they form a basis for \(N(A-\lambda_2 I)\).
+        </li>
+        <li>
+          The above information allows us to write down
+          \[A=\left(\begin{array}{ccc}|&|&|\\u_1&u_2&u_3\\|&|&|\end{array}\right)
+          \left(\begin{array}{ccc}\lambda_1&0&0\\0&\lambda_2&0\\0&0&\lambda_2\end{array}\right)
+          \left(\begin{array}{ccc}|&|&|\\u_1&u_2&u_3\\|&|&|\end{array}\right)^{-1}\]
+        </li>
+        <li>
+          Suppose now another choice is made, say \(\tilde{\lambda_1}=\lambda_2, \tilde{\lambda_2}=\lambda_2, \tilde{\lambda_3}=\lambda_1\). 
+          This can happen when different student solve \(det (A-\lambda I)=0\) and write down different roots in different order, say.
+        </li>
+        <li>
+          Then, suppose it is chosen that \(\tilde{u}_1=u_2-u_3, \tilde{u}_2=u_2+u_3, \tilde{u}_3=u_1\). We have
+          \[
+          \begin{align} 
+          A&=\left(\begin{array}{ccc}|&|&|\\\tilde{u}_1&\tilde{u}_2&\tilde{u}_3\\|&|&|\end{array}\right)
+          \left(\begin{array}{ccc}\tilde{\lambda}_1&0&0\\0&\tilde{\lambda}_2&0\\0&0&\tilde{\lambda}_3\end{array}\right)
+          \left(\begin{array}{ccc}|&|&|\\\tilde{u}_1&\tilde{u}_2&\tilde{u}_3\\|&|&|\end{array}\right)^{-1} \\
+          &= \left(\begin{array}{ccc}|&|&|\\u_2-u_3&u_2+u_3&u_1\\|&|&|\end{array}\right)
+          \left(\begin{array}{ccc}\lambda_2&0&0\\0&\lambda_2&0\\0&0&\lambda_1\end{array}\right)
+          \left(\begin{array}{ccc}|&|&|\\u_2-u_3&u_2+u_3&u_1\\|&|&|\end{array}\right)^{-1} \\
+          &= \left(\begin{array}{ccc}|&|&|\\u_1&u_2&u_3\\|&|&|\end{array}\right)
+          \left(\begin{array}{ccc}0&0&1\\1&1&0\\-1&1&0\end{array}\right)
+          \left(\begin{array}{ccc}\lambda_2&0&0\\0&\lambda_2&0\\0&0&\lambda_1\end{array}\right)
+          \left(\begin{array}{ccc}0&0&1\\1&1&0\\-1&1&0\end{array}\right)^{-1}
+          \left(\begin{array}{ccc}|&|&|\\u_1&u_2&u_3\\|&|&|\end{array}\right)^{-1}\\
+          &= \left(\begin{array}{ccc}|&|&|\\u_1&u_2&u_3\\|&|&|\end{array}\right)
+          \left(\begin{array}{ccc}\lambda_1&0&0\\0&\lambda_2&0\\0&0&\lambda_2\end{array}\right)
+          \left(\begin{array}{ccc}|&|&|\\u_1&u_2&u_3\\|&|&|\end{array}\right)^{-1}
+          \end{align}
+          \]
+        </li>
+        <li>
+          Therefore, even though in general diagonal matrices does not commute with invertible matrices, we still have
+          \(KDK^{-1}=D\) (hint: \(\lambda I\) commutes with every matrix!) where \(D\) is a diagonal matrix of eigenvalues.
           \[\tilde{P}D\tilde{P}^{-1}=PKDK^{-1}P^{-1}=PDP^{-1}.\]
         </li>
       </ul>
