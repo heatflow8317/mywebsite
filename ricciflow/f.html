@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href="..">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+    <title>First variation of \(\mathcal{F}\)-functional</title>
+</head>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  * {box-sizing: border-box;}
+  
+  .header {
+    overflow: hidden;
+    background-color: #f8f8f885;
+    padding: 20px 10px;
+  }
+  
+  .header a {
+    float: left;
+    color: #050d38;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .header a:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .header a.active {
+    background-color: #00baff;
+    color: black;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    
+    .header-right {
+      float: none;
+    }
+  }
+
+  body{
+  background-color: #f8f8f885;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #000000; 
+  text-align:left;
+  font-family:'Comic Sans MS';
+  /*font-family:'Roboto',sans-serif;*/
+  font-size:16pt;
+  line-height:1.5em;
+  margin: 60px auto;
+  width: 1000px;
+  }
+  </style>
+  </head>
+    <body>
+    
+    <div class="header">
+        <a class="active" href="index.html#notes">Back to Website</a>
+    </div>
+
+<body>
+    <div>
+      <ul style="list-style-type:none;">
+        <li>
+          <h4>
+            First variation of the \(\mathcal{F}\)-functional
+          </h4>
+        </li>
+        <li>
+          Suppose \(M\) is a compact manifold.
+            Let \(\delta g_{ij}=v_{ij}, \delta f=h\) be variations where \(g\) is a metric on \(M\) and \(f\) is 
+          a smooth function on \(M\). Then \(v_{ij}\) is a symmetric covariant 2-tensor on \(M\). Define the \(\mathcal{F}\)-functional to be
+          \[\mathcal{F}(g,f)=\int_M(R+|\nabla f|^2)e^{-f}\mathrm{d} V,\]
+          then the first variation of \(\mathcal{F}\) is a functional on \(v_{ij}, h\) given by
+          \[\delta \mathcal{F}(v_{ij}, h)=
+          \int_M e^{-f}\left[-v_{ij}(R_{ij}+\nabla_i\nabla_j f)+
+          \left( \frac{v}{2}-h\right)(2\Delta f - |\nabla f|^2 + R) \right]\mathrm{d}V.\]
+        </li>
+        <li>
+            Proof:
+        </li>
+        <li>
+            Claim 1: the first variation of Christoffel symbol is 
+            \[\delta \Gamma^k_{ij}=\frac{1}{2}g^{kl}(\nabla_i v_{jl}+\nabla_j v_{il} - \nabla_l v_{ij}).\]
+            Proof of claim 1: We claim the equation holds at each point \(x\in M\) as functions. Fix \(x\). Choose normal coodinates at \(x\), then 
+            locally we have
+            \[ 
+            \begin{align} 
+                \delta \Gamma^k_{ij} &= \delta \left( \frac{1}{2}g^{kl}(\partial_i g_{jl}+\partial_j g_{il} - \partial_l g_{ij}) \right)\\
+                    &= \frac{1}{2}(\delta g^{kl}) (\partial_i g_{jl}+\partial_j g_{il} - \partial_l g_{ij}) 
+                    + \frac{1}{2}g^{kl}(\partial_i v_{jl}+\partial_j v_{il} - \partial_l v_{ij}) \\
+                    &= frac{1}{2}g^{kl}(\partial_i v_{jl}+\partial_j v_{il} - \partial_l v_{ij})\\
+                    &= \frac{1}{2}g^{kl}(\nabla_i v_{jl}+\nabla_j v_{il} - \nabla_l v_{ij})
+            \end{align} 
+            \]
+            where in the last step we change back to covariant derivatives.
+        </li>
+        <li>
+            Claim 2: the first variation of scalar curvature is (\(v=g^{ji}v_{ij}\))
+            \[\delta R = -\Delta v + \nabla_i\nabla_j v_{ij}-R_{ij}v_{ij}\]
+            Proof of claim 2: Writing in covariant derivatives, we have
+            \[\delta R_{ij}=\nabla_p (\delta \Gamma^p_{ij})-\nabla_i (\delta \Gamma^p_{pj}).\]
+            \[
+            \begin{align}
+                \nabla_p \delta \Gamma^p_{ij} &= \nabla_p  \frac{1}{2}g^{pl}(\nabla_i v_{jl}+\nabla_j v_{il} - \nabla_l v_{ij})\\
+                    &= \frac{1}{2}g^{pl}(\nabla_p\nabla_iv_{jl}+\nabla_p\nabla_jv_{il}-\nabla_p\nabla_lv_{ij})
+            \end{align}
+            \]
+            \[
+            \begin{align}
+                \nabla_i \delta \Gamma^p_{pj} &= \nabla_i  \frac{1}{2}g^{pl}(\nabla_p v_{jl}+\nabla_j v_{pl} - \nabla_l v_{pj})\\
+                    &= \frac{1}{2}g^{pl}(\nabla_i\nabla_jv_{pl}) \\
+                    &= \frac{1}{2}\nabla_i\nabla_j v
+            \end{align}
+            \]
+            the two terms cancel out because, if we interchange \(p,l\) they are the same. Hence, we have
+            \[ 
+            \begin{align}  
+                \delta R &= \delta (g^{ji}R_{ij}) \\
+                    &= (\delta g^{ji}) R_{ij} + g^{ji} \delta R_{ij} \\
+                    &= -g^{pj}g^{qi} \delta g_{pq} R_{ij} + g^{ji} \left[\frac{1}{2}g^{pl}(\nabla_p\nabla_iv_{jl}+\nabla_p\nabla_j v_{il}
+                    -\nabla_p\nabla_l v_{ij})-\frac{1}{2}\nabla_i\nabla_j v \right] \\
+                    &= -g^{pj}g^{qi} v_{pq} R_{ij} + \frac{1}{2} \left[g^{ji}g^{pl}(2\nabla_p\nabla_iv_{jl}-\Delta v)-\Delta v \right] \\
+                    &= -g^{pj}g^{qi} v_{pq} R_{ij} + g^{ji}g^{pl}(\nabla_p\nabla_iv_{jl}) -\Delta v\\
+                    &= -v_{ij}R_{ij} + \nabla_i\nabla_j v_{ij} - \Delta v
+            \end{align}
+            \]
+            where in the last step we used normal coordinates and then change back to covariant coordinates. The \(i,j\) in the last term are dummy indexes
+            for summation.
+        </li>
+        <li>
+            Claim 3: The first variation of \(|\nabla f|^2\) is \(\delta |\nabla f|^2=-v_{ij}\nabla_i\nabla_jf+2\langle \nabla h, \nabla f\rangle\).
+            The proof is omitted.
+        </li>
+        <li>
+            Claim 4: THe first variation of \(\mathrm{d}V\) is \(\delta \mathrm{d}V = \frac{v}{2}\mathrm{d}V\). The proof is omitted.
+        </li>
+        <li>
+            Putting all the above together, we obtain
+            \[\delta \mathcal{F}=\int_M e^{-f} \left[-\Delta v + \nabla_i\nabla_jv_{ij}+v_{ij}R_{ij}-v_{ij}\nabla_if\nabla_jf
+            +2\langle \nabla f, \nabla h\rangle + (R+|\nabla f|^2)(\frac{v}{2}-h) \right]\mathrm{d}V\]
+            Using \(\Delta e^{-f}=(|\nabla f|^2-\Delta f)e^{-f}\) and integration by parts, we can reduce the formula to the desired result. The main idea
+            is to remove the derivatives of \(v,h\).
+        </li>
+      </ul>
+    </div>
+
+</body>
+</body>
+</html>
