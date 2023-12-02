@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href="..">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+    <title>Jordan Decomposition</title>
+</head>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  * {box-sizing: border-box;}
+  
+  .header {
+    overflow: hidden;
+    background-color: #f8f8f885;
+    padding: 20px 10px;
+  }
+  
+  .header a {
+    float: left;
+    color: #050d38;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .header a:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .header a.active {
+    background-color: #00baff;
+    color: black;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    
+    .header-right {
+      float: none;
+    }
+  }
+
+  body{
+  background-color: #f8f8f885;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #000000; 
+  text-align:left;
+  font-family:'Comic Sans MS';
+  /*font-family:'Roboto',sans-serif;*/
+  font-size:16pt;
+  line-height:1.5em;
+  margin: 60px auto;
+  width: 1000px;
+  }
+  </style>
+  </head>
+    <body>
+    
+    <div class="header">
+        <a class="active" href="index.html#notes">Back to Website</a>
+    </div>
+
+<body>
+    <div>
+      <ul style="list-style-type:none;">
+        <li>
+          <h4>
+            Jordan Decomposition
+          </h4>
+        </li>
+        <li>
+            Given a linear operator \(T\) on an \(n\)-dimensional vector space \(V\), 
+            which characteristic polynomial splits. Let \(\lambda_1, \ldots,  \lambda_r\) be the eigenvalues
+            and \(b_1, \ldots, b_r\) the corresponding algebraic multiplicities. Then we have
+            \[V=\oplus^r_{i=1} N((A-\lambda_i I)^{b_i})\]
+            and for each \(i\) there exists a basis for \( N((A-\lambda_i I)^{b_i})\) in the form 
+            \[(T-\lambda_iI)^{b_i-1} v_1, (T-\lambda_iI)^{b_i-2} v_1, \ldots, v_1, (T-\lambda_iI)^{b_i-1} v_2, \ldots, v_2, \ldots, 
+             (T-\lambda_iI)^{b_i-1}v_s, \ldots, v_s.\]
+        </li>
+        <li>
+            Rough idea of the proof:
+        </li>
+        <li>
+            First we claim that the decomposition holds: when there is only one eigenvalue, let \(p\) be the characteristic
+            polynomial of \(T\), then we have \(p(T)=(T-\lambda_1)^n=0\) by the Cayley-Hamilton theorem. This implies
+            \[V\subset N((T-\lambda_1)^n)\subset V.\]
+            We can always decompose 
+            \[V=N((T-\lambda_1)^{b_1})\oplus R((T-\lambda_1)^{b_1})\]
+            where the range \(R((T-\lambda_1)^{b_1})\) has dimension strictly less than \(n\). The decomposition follows 
+            by induction.
+        </li>
+        <li>
+            Next we claim the construction of basis. Fix \(i\) and omit \(i\) in the following argument. We do this by induction 
+            on \(n=dim V\). When \(n=1\) any linear map can 
+            either be trivial or scaling, and we can pick a nontrivial eigenvector to be the basis. This closes the base case.
+            Suppose we can find such basis on any \(V\) of dimension less than \(n\). Decompose
+            \[V=N(T-\lambda I)\oplus R(T-\lambda I)\]
+            then we can find a basis for \(R(T-\lambda I)\) in the form 
+            \[v_1, (T-\lambda_iI)v_1, \ldots, (T-\lambda_iI)^{b_i-1} v_1, v_2, \ldots, v_s,\ldots, 
+            (T-\lambda_iI)^{b_i-1}v_s.\]
+            and write them into 
+            \[u_1, \ldots, u_s, (T-\lambda I)u_1, \ldots, (T-\lambda I)u_s,\ldots, (T-\lambda I)^b u_1, 
+            \ldots, (T-\lambda I)^b u_s\]
+            for some \(u_1, \ldots, u_s\in V\). They are linearly independent. Extend the list to a basis of \(V\) by introducing
+            some 
+            \[w_1, \ldots, w_p.\]
+            \((T-\lambda)w_1,\ldots, (T-\lambda )w_p\) lies in the range \(R(T-\lambda I)\) so for each \(w_j\) we can write it into
+            a linear combination of \((T-\lambda I)u_1, \ldots, (T-\lambda I)u_s,\ldots, (T-\lambda I)^b u_1, 
+            \ldots, (T-\lambda I)^b u_s\). In other words, there exists a unique \(x_j\in R(T-\lambda I)\) such that
+            \[Nw_j=Nx_j.\]
+            Replace each \(w_j\) by \(w_j-x_j\) then we obtain a desired basis. The result follows by induction.
+        </li>
+        <li>
+            Application:
+        </li>
+        <li>
+            Given a matrix \(A\), we can write it into 
+            \[A=PBP^{-1}\]
+            where \(B\) is a block matrix and the columns of \(P\) form a basis as above.
+        </li>
+    </ul>
+</div>
+</body>
+
+</body>
+
+</html>
