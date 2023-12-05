@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href="..">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ TeX: { extensions: ["AMSmath.js"] }});
+      </script>
+    <title>Log-Harnack</title>
+</head>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  * {box-sizing: border-box;}
+  
+  .header {
+    overflow: hidden;
+    background-color: #f8f8f885;
+    padding: 20px 10px;
+  }
+  
+  .header a {
+    float: left;
+    color: #050d38;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .header a:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .header a.active {
+    background-color: #00baff;
+    color: black;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    
+    .header-right {
+      float: none;
+    }
+  }
+
+  body{
+  background-color: #f8f8f885;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #000000; 
+  text-align:left;
+  font-family:'Comic Sans MS';
+  /*font-family:'Roboto',sans-serif;*/
+  font-size:16pt;
+  line-height:1.5em;
+  margin: 60px auto;
+  width: 1000px;
+  }
+  </style>
+  </head>
+    <body>
+    
+    <div class="header">
+        <a class="active" href="index.html#notes">Back to Website</a>
+    </div>
+
+<body>
+  <h4>
+    Log-Harnack inequality
+  </h4>
+    <div>
+      <ul style="list-style-type:none;">
+        <li>
+           Suppose \(u: B_2(0)\rightarrow \mathbb{R}\) is positive harmonic, then
+           \[\sup_{B_1(0)}\frac{|\nabla u|}{u} \leq c\]
+           for some dimensional constant \(c\).
+        </li>
+        <li>
+            <h4>Proof:</h4>
+            Define \(v=\log u\) then
+            \[\nabla v = \nabla \log u = \frac{\nabla u}{u}\]
+            \[\Delta v = \nabla \frac{\nabla u}{u} = \frac{u\Delta u-|\nabla u|^2}{u^2}=-\frac{|\nabla u|^2}{u^2}\]
+            Define \(w=|\nabla v|^2\) such that \(\Delta v = -w\).
+            Then
+            \[\nabla w = \nabla |\nabla v|^2 = (v^2_i)_j=2v_{ij}v_i\]
+            \[\Delta w = (2v_{ij}v_i)_j = 2v_{ijj}v_i + 2v^2_{ij} = -2w_iv_i + 2v^2_{ij}\]
+            Let \(\varphi\in C^\infty_c (B_2)\) such that \(1\geq \varphi \geq 0\) and \(\varphi=1\) on \(B_1\). Then
+            \[\Delta (\varphi w) = \varphi \Delta w + w\Delta \varphi + 2\nabla \varphi \nabla w=
+            -2\varphi w_i v_i + 2\varphi v^2_{ij} + w\Delta \varphi + 4\nabla \varphi v_{ij}v_i\]
+            \[\Delta (\varphi w) + 2\varphi w_iv_i + 2\varphi_i wv_i = 
+            2\varphi v^2_{ij} + w\Delta \varphi + 4\nabla \varphi v_{ij} v_i + 2\varphi_i wv_i\]
+            \[\Delta (\varphi w) + 2\nabla v \nabla (\varphi w) = 2\varphi v^2_{ij} + w\Delta \varphi + 4\varphi_j v_{ij} varphi_i
+            + 2\varphi_i wv_i\]
+            \[=\varphi v^2_{ij} + w\Delta \varphi + 2w\varphi_iv_i + (\varphi v^2_{ij} + 4\varphi_j v_i v_{ij})\]
+            \[\geq \varphi v^2_{ij} + w\Delta \varphi + 2w\varphi_iv_i +(\varphi v^2_{ij} + 4\varphi^{\frac{1}{2}}\varphi_j v_i v_{ij})\]
+            \[\geq \varphi v^2_{ij} + w\Delta \varphi + 2w\varphi_iv_i -4v^2_i\varphi$2_j \]
+            \[\geq \varphi v^2_{ij} + c_1 w - c_2 |\nabla v|w - 4c_3 |\nabla v|^2\]
+            \[\geq \varphi \frac{w^2}{n} + c_1 w - c_2 w^{\frac{3}{2}}+c_3w\]
+            \[\geq P_4(\varphi^{\frac{1}{4}}w^{\frac{1}{2}}\]
+            where \(P_4\) is a polynomial of degree 4 and leading coefficient \(\frac{1}{n}>0\).
+        </li>
+        <li>
+            Let \(x\) be a point where \(\varphi w\) reaches interior maximum, then
+            \[0\geq P_4\]
+            Polynomial like \(P_4\) must be positive when \(|\varphi^{\frac{1}{2}}w|\) is big, so this implies
+            \[|\varphi^{\frac{1}{2}}w|\leq k\]
+            for some dimensional \(k>0\). On \(B_1\), this means
+            \[\frac{|\nabla u|}{u}\leq k\]
+        </li>
+    </ul>
+    </div>
+</body>
+</body>
+</html>
