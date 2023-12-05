@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href="..">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ TeX: { extensions: ["AMSmath.js"] }});
+      </script>
+    <title>MVP and Harmonicity</title>
+</head>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  * {box-sizing: border-box;}
+  
+  .header {
+    overflow: hidden;
+    background-color: #f8f8f885;
+    padding: 20px 10px;
+  }
+  
+  .header a {
+    float: left;
+    color: #050d38;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .header a:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .header a.active {
+    background-color: #00baff;
+    color: black;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    
+    .header-right {
+      float: none;
+    }
+  }
+
+  body{
+  background-color: #f8f8f885;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #000000; 
+  text-align:left;
+  font-family:'Comic Sans MS';
+  /*font-family:'Roboto',sans-serif;*/
+  font-size:16pt;
+  line-height:1.5em;
+  margin: 60px auto;
+  width: 1000px;
+  }
+  </style>
+  </head>
+    <body>
+    
+    <div class="header">
+        <a class="active" href="index.html#notes">Back to Website</a>
+    </div>
+
+<body>
+  <h4>
+    Mean Value Property and Harmonic function
+  </h4>
+    <div>
+        First of all, we list the two mean value properties: 
+        let \(u\in C(\Omega\subset \mathbb{R}^n)\) of connected domain, and \(\omega(n)=|\mathbb{S}^{n-1}\subset \mathbb{R}^n|\).
+        We have \(n\alpha(n)=\omega(n)\) where \(\alpha(n)\) is volume for \(n\)-dimensional solid ball.
+    <ul>
+        <li>
+            (Area mean)
+            \[u(x)=\frac{1}{\omega(n)r^{n-1}}\int_{\partial B_r(x)} u(y)\mathrm{d}S_y\]
+        </li>
+        <li>
+            (Volume mean)
+            \[u(x)=\frac{n}{\omega_nr^n}\int_{B_r(x)}u(y)\mathrm{d}y\]
+        </li>
+    </ul>
+      <ul style="list-style-type:none;">
+        <li>
+            <h4>Maximum principle:</h4> Suppose \(u\in C(\overline{\Omega})\) satisfies the mean value property in \(\Omega\),
+            then \(u\) attains maximum on the boundary, or \(u\) is constant.
+        </li>
+        <li>
+            Proof: We claim that the set
+            \[\Sigma=\{x\in \Omega: u(x)=M=\max_{\overline{\Omega}}u\}\subset \Omega.\]
+            As a level set it is relatively closed. For openness, pick any \(z\in \Sigma\) and \(B_r(z)\subset \Omega\),
+            mean value property implies \(u=M\) on the whole ball \(B_r(z)\).
+        </li>
+        <li>
+            <h4>Harmonic implies MVP:</h4> 
+        </li>
+        <li>
+            Proof: By change of variables, deduce that 
+            \[\partial_r \int_{|w=1|}u(x+rw)\mathrm{d} S_w=0\]
+            Integrate from 0 to \(r\).
+        </li>
+        <li>
+            <h4>MVP implies smooth and harmonic:</h4>
+        </li>
+        <li>
+            Proof: For smoothness, let \(\epsilon < d(x,\partial \Omega)\), check that \(\varphi_\epsilon * u(x)=u(x)\)
+            for all \(x\in \Omega\), where \(\varphi_\epsilon\) is mollifier and \(\varphi\in C^\infty_0(B_1(0))\) is radial
+            and \(\int_{B_1(0)}\varphi=1\). For harmonicity, apply mean value property to
+            \[\int_{B_r(x)}\Delta u = r^{n-1}\partial_r \int_{|w|=1}u(x+rw)\mathrm{d}S_w.\]
+        </li>
+        <li>
+            <h4>Gradient estimate:</h4> Suppose \(u\in C(\overline{B}_R)\) is harmonic in \(B_R=B_R(x_0)\). Then we have
+            \[|Du(x_0)|\leq \frac{n}{R}\max_{\overline{B}_R}|u|.\]
+        </li>
+        <li>
+            Proof: we note that Green's formula can be used in this way:
+            \[\int_\Omega u_i = \int_\Omega e_i \cdot \nabla u = \int_\Omega u \Delta x_i + \nabla x_i \cdot \nabla u 
+            = \int_{\partial \Omega} u \partial_\nu x_i=\int_{\partial \Omega} u \nu_i.\]
+            where \(\Delta x_i=0\).
+        </li>
+        <li>
+            Remark: a harmonic function in \(\mathbb{R}^n\) bounded from above or below is constant.
+        </li>
+        <li>
+            <h4>Higher gradient estimate:</h4> Suppose \(u \in C(\overline{B}_R)\) is harmonic in \(B_R=B_R(x_0)\), Then
+            for any multi-index \(\alpha\) with \(|\alpha|=m\) we have
+            \[|D^\alpha u(x_0)|\leq \frac{n^m e^{m-1} m!}{R^m} \max_{\overline{B}_R} |u|\]
+        </li>
+        <li>
+            <h4>Harmonic function is analytic.</h4>
+        </li>
+        <li>
+            <h4>Harnack inequality:</h4> Suppose \(u\) is harmonic in \(\Omega\). Then for any compact subset
+            \(K\subset \Omega\) there exists a constant \(C=C(\Omega, K)>0\) such that if \(u\geq 0\) in \(\Omega\),
+            then
+            \[\frac{1}{C}u(y)\leq u(x) \leq Cu(y)\]
+            for any \(x, y\in K\).
+        </li>
+    </ul>
+    </div>
+</body>
+</body>
+</html>
