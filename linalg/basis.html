@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href="..">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ TeX: { extensions: ["AMSmath.js"] }});
+      </script>
+    <title>Finding basis from RREF</title>
+</head>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  * {box-sizing: border-box;}
+  
+  .header {
+    overflow: hidden;
+    background-color: #f8f8f885;
+    padding: 20px 10px;
+  }
+  
+  .header a {
+    float: left;
+    color: #050d38;
+    text-align: center;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px; 
+    line-height: 25px;
+    border-radius: 4px;
+  }
+  
+  .header a.logo {
+    font-size: 25px;
+    font-weight: bold;
+  }
+  
+  .header a:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .header a.active {
+    background-color: #00baff;
+    color: black;
+  }
+  
+  .header-right {
+    float: right;
+  }
+  
+  @media screen and (max-width: 500px) {
+    .header a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    
+    .header-right {
+      float: none;
+    }
+  }
+
+  body{
+  background-color: #f8f8f885;
+  background-size: cover;
+  background-attachment: fixed;
+  color: #000000; 
+  text-align:left;
+  font-family:'Comic Sans MS';
+  /*font-family:'Roboto',sans-serif;*/
+  font-size:16pt;
+  line-height:1.5em;
+  margin: 60px auto;
+  width: 1000px;
+  }
+  </style>
+  </head>
+    <body>
+    
+    <div class="header">
+        <a class="active" href="index.html#notes">Back to Website</a>
+    </div>
+
+<body>
+  <h4>
+    Finding basis from RREF (Reduced Row-Echelon Form)
+  </h4>
+    <div>
+      <ul style="list-style-type:none;">
+        <li>
+           Claim: Given some vectors \(a_1, a_2, a_3, a_4, a_5\in \mathbb{R}^3\) and the following
+           \(3\times 5\) matrix
+           \[A=\left[ \begin{array}{ccccc}a_1&a_2&a_3&a_4&a_5\end{array}\right]\]
+           Suppose the RREF of \(A\) is
+           \[A=\left[ \begin{array}{ccccc}1&0&0&2&-3\\
+           0&1&0&-1&2\\
+           0&0&1&1&4\end{array}\right]=[I|C]\]
+           Then \(\{a_1, a_2, a_3\}\) is a linearly indepdent set.
+        </li>
+        <li>
+            Remark: There is another question in behind: row operations are changing the columns, so we cannot 
+            see the original columns from the RREF. In this way how can we relate the RREF of \(A\) 
+            and the columns of \(A\)?
+        </li>
+        <li>
+            <h4>Proof and explanation:</h4>
+        </li>
+        <li>
+            By RREF there exists an invertible \(3\times 3\) matrix \(H\) such that
+            \[[HA|0]=[I|C|0]\]
+            where \(0\) here stands for \(0\in \mathbb{R}^3\).
+        </li>
+        <li>
+            We can see that the linear system \(HAv=0\) has infinitely many non-trivial solutions.
+        </li>
+        <li>
+            \(H\) is invertible so this implies the linear system \(Av=0\) has infinitely many non-trivial solutions. Hence the 
+            columns of \(A\) are linear dependent.
+        </li>
+        <li>
+            If we remove \(a_4, a_5\) from \(A\) and call it \(A'\), we obtain
+            \[[HA'|0]=[I|0]\]
+            so the linear system \(HAv=0\) has unique trivial solution. \(H\) is invertible so this implies
+            \(Av=0\) has unique trivial solution.
+        </li>
+        <li>
+            For any scalars \(c_1,c_2,c_3\), if \(c_1a_1+c_2a_2+c_3a_3=0\) then \(c_1=c_2=c_3=0\). This is exactly linearly
+            independence.
+        </li>
+    </ul>
+    </div>
+</body>
+</body>
+</html>
