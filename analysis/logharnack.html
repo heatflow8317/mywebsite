@@ -105,21 +105,30 @@
             \[\Delta v = \nabla \frac{\nabla u}{u} = \frac{u\Delta u-|\nabla u|^2}{u^2}=-\frac{|\nabla u|^2}{u^2}\]
             Define \(w=|\nabla v|^2\) such that \(\Delta v = -w\).
             Then
-            \[\nabla w = \nabla |\nabla v|^2 = (v^2_i)_j=2v_{ij}v_i\]
-            \[\Delta w = (2v_{ij}v_i)_j = 2v_{ijj}v_i + 2v^2_{ij} = -2w_iv_i + 2v^2_{ij}\]
+            \[
+            \begin{align}
+            \nabla w &= \nabla |\nabla v|^2 = (v^2_i)_j=2v_{ij}v_i
+            \Delta w &= (2v_{ij}v_i)_j = 2v_{ijj}v_i + 2v^2_{ij} = -2w_iv_i + 2v^2_{ij}
+            \end{align} 
+            \]
             Let \(\varphi\in C^\infty_c (B_2)\) such that \(1\geq \varphi \geq 0\) and \(\varphi=1\) on \(B_1\). Then
-            \[\Delta (\varphi w) = \varphi \Delta w + w\Delta \varphi + 2\nabla \varphi \nabla w=
-            -2\varphi w_i v_i + 2\varphi v^2_{ij} + w\Delta \varphi + 4\nabla \varphi v_{ij}v_i\]
-            \[\Delta (\varphi w) + 2\varphi w_iv_i + 2\varphi_i wv_i = 
-            2\varphi v^2_{ij} + w\Delta \varphi + 4\nabla \varphi v_{ij} v_i + 2\varphi_i wv_i\]
-            \[\Delta (\varphi w) + 2\nabla v \nabla (\varphi w) = 2\varphi v^2_{ij} + w\Delta \varphi + 4\varphi_j v_{ij} varphi_i
-            + 2\varphi_i wv_i\]
-            \[=\varphi v^2_{ij} + w\Delta \varphi + 2w\varphi_iv_i + (\varphi v^2_{ij} + 4\varphi_j v_i v_{ij})\]
-            \[\geq \varphi v^2_{ij} + w\Delta \varphi + 2w\varphi_iv_i +(\varphi v^2_{ij} + 4\varphi^{\frac{1}{2}}\varphi_j v_i v_{ij})\]
-            \[\geq \varphi v^2_{ij} + w\Delta \varphi + 2w\varphi_iv_i -4v^2_i\varphi$2_j \]
-            \[\geq \varphi v^2_{ij} + c_1 w - c_2 |\nabla v|w - 4c_3 |\nabla v|^2\]
-            \[\geq \varphi \frac{w^2}{n} + c_1 w - c_2 w^{\frac{3}{2}}+c_3w\]
-            \[\geq P_4(\varphi^{\frac{1}{4}}w^{\frac{1}{2}}\]
+            \[
+            \begin{align}
+            \Delta (\varphi w) &= \varphi \Delta w + w\Delta \varphi + 2\nabla \varphi \nabla w \\
+            &=
+            -2\varphi w_i v_i + 2\varphi v^2_{ij} + w\Delta \varphi + 4\nabla \varphi v_{ij}v_i \\
+            &\Delta (\varphi w) + 2\varphi w_iv_i + 2\varphi_i wv_i = 
+            2\varphi v^2_{ij} + w\Delta \varphi + 4\nabla \varphi v_{ij} v_i + 2\varphi_i wv_i \\
+            &\Delta (\varphi w) + 2\nabla v \nabla (\varphi w) = 2\varphi v^2_{ij} + w\Delta \varphi + 4\varphi_j v_{ij} \varphi_i
+            + 2\varphi_i wv_i \\
+            &=\varphi v^2_{ij} + w\Delta \varphi + 2w\varphi_iv_i + (\varphi v^2_{ij} + 4\varphi_j v_i v_{ij}) \\
+            &\geq \varphi v^2_{ij} + w\Delta \varphi + 2w\varphi_iv_i +(\varphi v^2_{ij} + 4\varphi^{\frac{1}{2}}\varphi_j v_i v_{ij}) \\
+            &\geq \varphi v^2_{ij} + w\Delta \varphi + 2w\varphi_iv_i -4v^2_i\varphi$2_j \\
+            &\geq \varphi v^2_{ij} + c_1 w - c_2 |\nabla v|w - 4c_3 |\nabla v|^2 \\
+            &\geq \varphi \frac{w^2}{n} + c_1 w - c_2 w^{\frac{3}{2}}+c_3w \\
+            &\geq P_4(\varphi^{\frac{1}{4}}w^{\frac{1}{2}})
+            \end{align} 
+            \]
             where \(P_4\) is a polynomial of degree 4 and leading coefficient \(\frac{1}{n}>0\).
         </li>
         <li>
