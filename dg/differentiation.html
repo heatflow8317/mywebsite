@@ -91,33 +91,31 @@
     <header>
         <h4>Differentiation</h4>
     </header>
-    <div>
-        <ul style="list-style-type:none;">
-          <li>
-            In basic calculus we use the first principle to differentiate \(f\in C^\infty(M)\): if the limit
-            \[\lim_{t\rightarrow 0} \frac{f(x+vt)-f(x)}{t}\]
-            exists then we say that \(f\) is differentiable along the direction of \(v\) at the point \(x\). If such limit
-            holds for all directions \(v\), then we say that \(f\) is differentiable at \(x\).
-        </li>
-        <li>
-            On manifold it takes more effort to define an analog of \(f(x+vt)\), which geometrically means moving the point \(x\)
-            a little bit along \(v\): by ODE theory, fix \(x, v\) there exists a unique curve \(\gamma_v\) on \(M\) such that
-            \(\gamma_v(0)=x, \gamma_v'(0)=v\) and we may define
-            \[\varphi_t: p \mapsto \gamma_{X(p)}(t)\]
-            as a one-parameter subgroup of diffeomorphism on \(M\) induced by a vector field \(X\).
-        </li>
-        <li>
-            Differentiation along \(\varphi_t\) is called the Lie derivative.
-        </li>
-        </ul>
-    </div>
     <h4>
         Lie derivative
     </h4>
     <div>
+      <ul style="list-style-type:none;">
+        <li>
+          In basic calculus we use the first principle to differentiate \(f\in C^\infty(M)\): if the limit
+          \[\lim_{t\rightarrow 0} \frac{f(x+vt)-f(x)}{t}\]
+          exists then we say that \(f\) is differentiable along the direction of \(v\) at the point \(x\). If such limit
+          holds for all directions \(v\), then we say that \(f\) is differentiable at \(x\).
+      </li>
+      <li>
+          On manifold it takes more effort to define an analog of \(f(x+vt)\), which geometrically means moving the point \(x\)
+          a little bit along \(v\): by ODE theory, fix \(x, v\) there exists a unique curve \(\gamma_v\) on \(M\) such that
+          \(\gamma_v(0)=x, \gamma_v'(0)=v\) and we may define
+          \[\varphi_t: p \mapsto \gamma_{X(p)}(t)\]
+          as a one-parameter subgroup of diffeomorphism on \(M\) induced by a vector field \(X\).
+      </li>
+      <li>
+          Differentiation along \(\varphi_t\) is called the Lie derivative.
+      </li>
+      </ul>
         <ul>
             <li>
-                Claim: \(\mathcal{L}_X f=Xf\) for all \(f\in \Gamma(C^\infty(M))\).
+                Claim: \(\mathcal{L}_X f=Xf\) for all \(f\in C^\infty(M)\).
             </li>
             <li style="list-style-type:none;">
                 Proof of claim: at any \(p\in M\) we have
@@ -150,8 +148,133 @@
             \end{align}
             \]
             </li>
+            <li>
+              After considering vector fields, we consider the Lie derivatives on \(k\)-forms: we claim that 
+              for any \(\omega\in \Omega^k(M)\), we have
+              \[\mathcal{L}_X\omega (Y_1, \cdots, Y_n) = \lim_{t\rightarrow 0} \frac{\varphi^*_t \omega-\omega}{t}
+              (Y_1, \cdots, Y_n)
+              =X\omega(Y_1, \cdots, Y_k) - \sum_i \omega(Y_1, \cdots, \mathcal{L}_XY_i. \cdots, Y_k).\]
+            </li>
+            <li  style="list-style-type:none;">
+              Proof of claim:
+              \[
+              \begin{align} 
+              \lim_{t\rightarrow 0} \frac{\varphi^*_t \omega (\varphi_t(p))-\omega(p)}{t}
+              (Y_1, \cdots, Y_n) &= 
+              \lim_{t\rightarrow 0} \frac{1}{t} \left[
+              \varphi^*_t \omega (\varphi_{t*}Y_1(p) , \cdots, \varphi_{t*}Y_n(p))- \omega(Y_1(p), \cdots, Y_n(p))
+              \right] \\
+              &=  \lim_{t\rightarrow 0} \frac{1}{t} [
+              \varphi^*_t \omega (\varphi_{t*}Y_1(p) , \cdots, \varphi_{t*}Y_n(p))-
+              \varphi^*_t \omega (Y_1(p) ,\varphi_{t*}Y_2(p), \cdots, \varphi_{t*}Y_n(p))\\
+              &\quad + \varphi^*_t \omega (Y_1(p) ,\varphi_{t*}Y_2(p), \cdots, \varphi_{t*}Y_n(p))
+              - \varphi^*_t \omega (Y_1(p) ,Y_2(p), \varphi_{t*}Y_3(p), \cdots, \varphi_{t*}Y_n(p))\\
+              &\quad + \cdots +\varphi^*_t \omega (Y_1(p) ,Y_2(p), Y_3(p), \cdots, Y_n(p)) - \omega(Y_1(p), \cdots, Y_n(p))] \\
+              &= -\sum_i \omega(Y_1, \cdots, \mathcal{L}_XY_i. \cdots, Y_k) + X\omega(Y_1, \cdots, Y_k)
+              \end{align}
+              \]
+              The negative sign is because we differentiated in the opposite direction for \(\mathcal{L}_XY\).
+            </li>
             
+            <li>
+
+            </li>
         </ul>
+    </div>
+    <h4>
+      Covariant derivative
+    </h4>
+    <div>
+      <ul>
+          <li style="list-style-type:none;">
+            The story of covariant derivative is rather algebraic: we start with the set of operators that satisfy the following
+            property: for all \(X,Y,Z\in \Gamma(TM), f,g,h\in C^\infty(M)\), we have
+            \[\nabla_{fX+gY}Z=f\nabla_X Z+ g\nabla_Y Z; \quad \nabla_X hZ=Xh + h\nabla_XZ\]
+          </li>
+          <li>
+            Claim: there exists a unique \(\nabla\) which is torsion free: \(\nabla_XY-\nabla_YX=[X,Y]\) and metric
+            compatible: \(Zg(X,Y)=g(\nabla_ZX,Y) + g(X,\nabla_ZT)\).
+          </li>
+          <li style="list-style-type:none;">
+            Proof of claim:
+              By metric compatibility, we can write down
+              \[
+              \begin{align} 
+                Xg(Y,Z) &= g(\nabla_XY, Z) + g(Y, \nabla_XZ) \\
+                Yg(X,Z) &= g(\nabla_Y X, Z) + g(X, \nabla_YZ) \\
+                Zg(X,Y)&= g(\nabla_ZX, Y) + g(X, \nabla_ZY)
+              \end{align}
+              \]
+              and using the torsion free property to deduce
+              \[
+              \begin{align}
+                Xg(Y,Z)+Yg(X,Z)-Zg(X,Y) &=
+                 g(\nabla_XY, Z)+g(\nabla_YX, Z)+ g(Y, [X,Z])+g(X,[Y,Z])\\
+                 &= g(X,[Y,Z])+g(Y,[X,Z])+g(Z,[X,Y])+2g(Z,\nabla_YX)
+              \end{align}
+              \]
+              Hence, the desired \(\nabla\) can be defined by
+              \[g(Z,\nabla_YX):= \frac{1}{2}[Xg(Y,Z)+Yg(X,Z)-Zg(X,Y)-g(X,[Y,Z])-g(Y,[X,Z])-g(Z,[X,Y])] \]
+              and it is uniquely determined by the metric \(g\). 
+          </li>
+          <li>
+            This unique connection is called the Levi-Civita connection, sometimes written \(\nabla^{LC}\) if there are many connections in use.
+          </li>
+          <li>
+            Put \(X=\partial_i, Y=\partial_j, Z=\partial_l\) we obtain
+            \[g(\partial_l, \nabla_j \partial_i) =\frac{1}{2}(\partial_i g_{jl} + \partial_j g_{il} - \partial_l g_{ij})\]
+            By linearity there exists some coefficients \(\Gamma^k_{ij}\) such that \(\nabla_j \partial_i = \Gamma^k_{ij}\partial_k\).
+            We call them the Christoffel symbols. By the above calculation, we have
+            \[\Gamma^k_{ij}=\frac{1}{2}g^{kl}(\partial_i g_{jl} + \partial_j g_{il} - \partial_l g_{ij}).\]
+          </li>
+          <li>
+            Algebraically, we define the covariant derivative on \(k\)-forms as follows:
+            \[\nabla \omega(X, Y_1, \cdots, Y_n)=(\nabla_X\omega)(Y_1, \cdots, Y_n)=\nabla_X (\omega(Y_1, \cdots, Y_n))- \sum_i \omega(Y_1, \cdots, \nabla_XY_i, \cdots, Y_n). \]
+          </li>
+      </ul>
+    </div>
+    <h4>
+      The divegence, gradient, Hessian and Laplacian.
+    </h4>
+    <div>
+          <li>
+            We ask for the meaning of second derivative for functions. Define the Hessian of a (smooth) 
+            function \(f\) on Riemannian manifold \(M,g\) by
+            \[Hess f(X,Y) := \frac{1}{2}(\mathcal{L}_{\nabla f}g)(X,Y)\]
+            Claim: \(Hess f(X,Y)=g(\nabla_X \nabla f, Y)=(\nabla_X \mathrm{d} f)Y\) where \(\nabla\) is the Levi-Civita connection.
+          </li>
+          <li style="list-style-type:none;">
+            Proof of claim: First of all, we show that \((\nabla_X \mathrm{d} f)Y=g(\nabla_X \nabla f, Y)\). The calculation is 
+            \[
+            \begin{align} 
+              (\nabla \mathrm{d} f)(X,Y) &= (\nabla_X \mathrm{d} f)Y \\
+                &= XYf - \nabla_{\nabla_XY}f\\
+                g(\nabla_X \nabla f, Y) &= Xg(\nabla f, Y)-g(\nabla f, \nabla_X Y)\\
+                  &= XYf - \nabla_{\nabla_XY}f \\
+                  &= (\nabla_X \mathrm{d} f)Y.
+            \end{align}
+            \]
+            Next, we show that \((\nabla_X \mathrm{d} f) Y = (\nabla_Y \mathrm{d} f) X\). The calculation is 
+            \[
+            \begin{align} 
+              (\nabla_X \mathrm{d} f) Y - (\nabla_Y \mathrm{d} f) X &= XYf - YXf -(\nabla_{\nabla_XY}-\nabla_{\nabla_YX})f\\
+              &= ([X,Y]-\nabla_{[X,Y]})f\\
+              &= 0
+            \end{align}
+            \]
+            Finally, we have
+            \[
+            \begin{align} 
+              (\nabla_X \mathrm{d}f) Y &= \frac{1}{2}(\nabla_X \mathrm{d} f)Y + \frac{1}{2}(\nabla_Y \mathrm{d}f)X \\
+              &= \frac{1}{2}g(\nabla_X\nabla f, Y)+\frac{1}{2}g(\nabla_Y \nabla f)X\\
+              &= \frac{1}{2} (\nabla_{\nabla f}g)(X,Y)+\frac{1}{2}g(\nabla_X \nabla f, Y) + \frac{1}{2}g(X, \nabla_Y\nabla f)\\
+              &= \frac{1}{2}\nabla f(g(X,Y)) -\frac{1}{2} g(\nabla_{\nabla f}X, Y)-\frac{1}{2}g(\nabla_{\nabla f}Y, X)
+              +\frac{1}{2}g(\nabla_X \nabla f, Y) + \frac{1}{2}g(X, \nabla_Y\nabla f) \\
+              &= \frac{1}{2}\nabla f(g(X,Y))-\frac{1}{2}g([\nabla f, X], Y)-\frac{1}{2}g([\nabla f, Y],X)\\
+              &= \frac{1}{2}\mathcal{L}_{\nabla f}g(X,Y).
+            \end{align}
+            \]
+          </li>
     </div>
 </body>
     </html>
