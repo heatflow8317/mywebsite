@@ -86,7 +86,86 @@
     <div class="header">
         <a class="active" href="index.html#notes">Back to Website</a>
     </div>
-
+    <header>
+      <h4>Jacobi field</h4>
+    </header>
+    <div>
+      <ul style="list-style-type:none;">
+        <li>
+          A Jacobi field for a smooth distance function \(r\) is a smooth vector field \(J\) that does not depend on \(r\).
+          In other words, it satisfies
+          \[\mathcal{L}_{\partial r}J=0.\]
+          Defining the operator \(S: X \mapsto \nabla_X \partial r\), we can calculate that
+          \[
+          \begin{align} 
+            \mathcal{L}_{\partial r} J &= [\partial r, J] \\
+              &= \nabla_{\partial r}J - \nabla_J\partial r\\
+              &=\nabla_{\partial r}J - S(J)
+          \end{align}
+          \]
+          and hence the Jacobi equation becomes
+          \[\nabla_{\partial r}J=S(J).\]
+          Differentiating both sides by \(\nabla_{\partial r}\) we obtain
+          \[\nabla_{\partial r}\nabla_{\partial r} J = \nabla_{\partial r} S(J)=\nabla_{\partial r}\nabla_J \partial r 
+          =\nabla_{\partial r}\nabla_J \partial r -\nabla_J\nabla_{\partial r} \partial r =R(\partial r, J)\partial r=
+          -R(J, \partial_r)\partial_r=-R_{\partial r}J\]
+          which is the expression that we can obtain via second variation of arc-length.
+        </li>
+        <li>
+          Remark: \(|\nabla r|=1\).
+        </li>
+      </ul>
+      <ul>
+        <h4>
+          Relation to geometry
+        </h4>
+        <li>
+          Claim: \(\nabla_{\partial r}\partial r=0\).
+        </li>
+        <li style="list-style-type:none;">
+            Proof of claim: \(|\nabla r|=1\).
+        </li>
+        <li>
+          Claim: (Riccati equation) \(\nabla_{\partial r} S + S^2 = -R_{\partial r}\).
+        </li>
+        <li style="list-style-type:none;">
+          Proof of claim: For any vector field \(X\), we have
+          \[
+          \begin{align} 
+            (\nabla_{\partial r}S)X &= \nabla_{\partial r}(S(X))-S(\nabla_{\partial r}X)\\
+              &= -R_{\partial r}X-S(\nabla_X \partial r) \\
+              &= -R_{\partial r}X-S^2(X)
+          \end{align}
+          \]
+        </li>
+        <li>
+          Claim: \(\mathcal{L}_{\partial r}g = 2 Hess r\).
+        </li>
+        <li style="list-style-type:none;">
+          Proof of claim: This is the definition of Hessian in the sense of Lie derivatives.
+        </li>
+        <li>
+          Claim: \((\nabla_{\partial r} Hess r)(X,Y) + Hess^2r(X,Y)=-R(X,\partial_r, \partial_r, Y)\).
+        </li>
+        <li style="list-style-type:none;">
+          Proof of claim: we calculate that
+          \[
+          \begin{align} 
+          (\nabla_{\partial r} Hess r)(X,Y) &= \nabla_{\partial r}(Hess r(X,Y))-Hess r(\nabla_{\partial r}X, Y)
+          - Hess r(X, \nabla_{\partial r}Y) \\
+          &= \nabla_{\partial r}(g(X, S(Y)))- g(\nabla_{\partial r}X, S(Y))-g(\nabla_{\partial r}Y, S(X))\\
+          &= g(X, \nabla_{\partial r}S(Y))- g(S(Y),S(X))\\
+          &= g(X, \nabla_{\partial r}\nabla_Y \partial r)-Hess^2r(X,Y) \\
+          &= R(X, \partial r, Y, \partial r)-Hess^2r(X,Y) \\
+          &= -R(X,\partial_r, \partial_r, Y)-Hess^2r(X,Y).
+          \end{align}
+          \]
+        </li>
+        <li>
+          Claim: \((\mathcal{L}_{\partial r} Hess r)(X,Y) - Hess^2r(X,Y)=-R(X,\partial_r, \partial_r, Y)\).
+        </li>
+      </ul>
+    </div>
     </body>
 
     </html>
