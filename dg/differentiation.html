@@ -97,20 +97,22 @@
     <div>
       <ul style="list-style-type:none;">
         <li>
-          In basic calculus we use the first principle to differentiate \(f\in C^\infty(M)\): if the limit
+          In basic calculus we use the first principle to differentiate \(f\in C^\infty(\mathbb{R}^n)\): if the limit
           \[\lim_{t\rightarrow 0} \frac{f(x+vt)-f(x)}{t}\]
           exists then we say that \(f\) is differentiable along the direction of \(v\) at the point \(x\). If such limit
           holds for all directions \(v\), then we say that \(f\) is differentiable at \(x\).
       </li>
       <li>
           On manifold it takes more effort to define an analog of \(f(x+vt)\), which geometrically means moving the point \(x\)
-          a little bit along \(v\): by ODE theory, fix \(x, v\) there exists a unique curve \(\gamma_v\) on \(M\) such that
+          a little bit along \(v\): by ODE theory, fix \((x, v)\) there exists a unique curve \(\gamma_v:(-\epsilon, \epsilon)\rightarrow M\) such that
           \(\gamma_v(0)=x, \gamma_v'(0)=v\) and we may define
           \[\varphi_t: p \mapsto \gamma_{X(p)}(t)\]
           as a one-parameter subgroup of diffeomorphism on \(M\) induced by a vector field \(X\).
       </li>
       <li>
-          Differentiation along \(\varphi_t\) is called the Lie derivative.
+          Using \(\varphi_t\) we can talk about differentiating along a vector field. For instance, we define
+          \[\mathcal{L}_Xf= \lim_{t\rightarrow 0} \frac{f(\varphi_t(p))-f(p)}{t}\]
+          to be the Lie derivative of \(f\) along a given vector field \(X\). The RHS is analogous to the first principle.
       </li>
       </ul>
         <ul>
@@ -124,9 +126,14 @@
                     \lim_{t\rightarrow 0} \frac{f(\varphi_t(p))-f(p)}{t}&= 
                     \lim_{t\rightarrow 0} \frac{f(\varphi_t(p))-f(p)}{\varphi_t(p)-p} \frac{\varphi_t(p)-p}{t} \\
                     &=  \mathrm{d} f (p) X(p) \\
-                    &= Xf(p)
+                    &= Xf(p).
                 \end{align}
                 \]
+            </li>
+            <li style="list-style-type:none;">
+              Next, we extend the notion to differentiating smooth vector fields. A diffeomorphism on \(M\) induces push-forward map on the 
+              vector fields, so we define
+              \[\mathcal{L}_XY= \lim_{t\rightarrow 0} \frac{(\varphi_{-t})_* Y(\varphi_t(p))-Y(p)}{t}\]
             </li>
             <li>
                 Claim: \(\mathcal{L}_X Y=[X,Y]\) for all \(Y\in \Gamma(TM)\).
@@ -148,19 +155,23 @@
             \end{align}
             \]
             </li>
-            <li>
-              After considering vector fields, we consider the Lie derivatives on \(k\)-forms: we claim that 
-              for any \(\omega\in \Omega^k(M)\), we have
+            <li style="list-style-type:none;">
+              Lie derivatives on \(k\)-forms are defined by using push-forward maps
               \[\mathcal{L}_X\omega (Y_1, \cdots, Y_n) = \lim_{t\rightarrow 0} \frac{\varphi^*_t \omega-\omega}{t}
-              (Y_1, \cdots, Y_n)
-              =X\omega(Y_1, \cdots, Y_k) - \sum_i \omega(Y_1, \cdots, \mathcal{L}_XY_i. \cdots, Y_k).\]
+              (Y_1, \cdots, Y_n)\]
+            </li>
+            <li>
+              Claim:
+              \(\mathcal{L}_X\omega (Y_1, \cdots, Y_n)
+              =X\omega(Y_1, \cdots, Y_k) - \sum_i \omega(Y_1, \cdots, \mathcal{L}_XY_i. \cdots, Y_k).\)
             </li>
             <li  style="list-style-type:none;">
               Proof of claim:
               \[
               \begin{align} 
-              \lim_{t\rightarrow 0} \frac{\varphi^*_t \omega (\varphi_t(p))-\omega(p)}{t}
-              (Y_1, \cdots, Y_n) &= 
+              &\quad \lim_{t\rightarrow 0} \frac{\varphi^*_t \omega (\varphi_t(p))-\omega(p)}{t}
+              (Y_1, \cdots, Y_n)\\
+               &= 
               \lim_{t\rightarrow 0} \frac{1}{t} \left[
               \varphi^*_t \omega (\varphi_{t*}Y_1(p) , \cdots, \varphi_{t*}Y_n(p))- \omega(Y_1(p), \cdots, Y_n(p))
               \right] \\
@@ -183,13 +194,33 @@
     <div>
       <ul>
           <li style="list-style-type:none;">
-            The story of covariant derivative is rather algebraic: we start with the set of operators that satisfy the following
-            property: for all \(X,Y,Z\in \Gamma(TM), f,g,h\in C^\infty(M)\), we have
-            \[\nabla_{fX+gY}Z=f\nabla_X Z+ g\nabla_Y Z; \quad \nabla_X hZ=Xh + h\nabla_XZ\]
+            In basic calculus we are familiar with the following derivation rule: for all \(f,g\in C^\infty(\mathbb{R})\), we have 
+            \[(fg)'=f'g+g'f.\]
+            However, the Lie derivative is not a derivation in the sense that
+            \[\mathcal{L}_X(fY)\neq X(f)Y+f\mathcal{L}_XY.\]
           </li>
           <li>
-            Claim: there exists a unique \(\nabla\) which is torsion free: \(\nabla_XY-\nabla_YX=[X,Y]\) and metric
-            compatible: \(Zg(X,Y)=g(\nabla_ZX,Y) + g(X,\nabla_ZT)\).
+            Theorem: Define the operator \(\nabla\) such that for all \(X,Y,M\in \Gamma(TM)\) we have
+            \[2g(\nabla_XY,Z)=(\mathcal{L}_Xg)(Y,Z)+(\mathrm{d} \theta_X)(Y,Z)\]
+            where \(\theta_X: Y\mapsto g(X,Y)\).
+            Then \(\nabla\) satisfies the following properties: 
+            <ul>
+              <li>
+                \(\nabla_{aY+bZ}X=a\nabla_YX+b\nabla_ZX\)
+              </li>
+              <li>
+                \(\nabla_Y(X+Z)=\nabla_YX+\nabla_YZ; \nabla_Y(fX)=Y(f)X+f\nabla_YX\)
+              </li>
+              <li>
+                Torsion free: \(\nabla_XY-\nabla_YX=[X,Y]\)
+              </li>
+              <li>
+                Metric: \(Zg(X,Y)=g(\nabla_ZX,Y)+g(X,\nabla_ZY)\)
+              </li>
+            </ul>
+          </li>
+          <li>
+            Claim: THe operator \(\nabla\) satisfying the above properties is unique.
           </li>
           <li style="list-style-type:none;">
             Proof of claim:
