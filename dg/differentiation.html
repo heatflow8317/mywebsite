@@ -92,6 +92,40 @@
         <h4>Differentiation</h4>
     </header>
     <h4>
+      Exterior differentiation
+    </h4>
+    <div>
+        <ul style="list-style-type:none;">
+          <li>
+            Given a differential form \(\omega\) on \(M\). On a local chart \((U, \varphi)\) on \((M,g)\), suppose it
+            can be written as
+            \[\omega=f\mathrm{d}x^{i_1}\wedge \cdots \wedge \mathrm{d}x^{i_k},\]
+            then we define 
+            \[\mathrm{d}\omega=\mathrm{d}f \wedge \mathrm{d}x^{i_1}\wedge \cdots \wedge \mathrm{d}x^{i_k} \]
+            on the same chart, where \(\mathrm{d}f=\sum_i\partial_if \mathrm{d}x^i\). This is called the exterior derivative.
+          </li>
+        </ul>
+        <ul>
+          <li>
+            Claim: The above definition is independent of local chart.
+          </li>
+          <li style="list-style-type:none;">
+            Proof of claim: We will use the fact that \(\mathrm{d}^2=0\). Observe that for all vector \(v\) on \(M\), 
+            \((\mathrm{d}\varphi^*f)(v)=\mathrm{d}(f\circ \varphi)(v)=\mathrm{d}f(\varphi_*v)=\varphi^*\mathrm{d}f\). Then
+            \[ 
+            \begin{align} 
+              \mathrm{d}(\varphi^*\omega) &= \mathrm{d} (\varphi^*(f\mathrm{d}x^{i_1}\wedge \cdots \wedge \mathrm{d}x^{i_k}))\\
+              &= \mathrm{d}(\varphi^*f \wedge \varphi^*\mathrm{d}x^{i_1}\wedge \cdots \wedge \mathrm{d}x^{i_k})\\
+              &= \mathrm{d}\varphi^*f \wedge \varphi^* \mathrm{d}x^{i_1}\wedge \cdots \wedge \mathrm{d}x^{i_k}
+              + \varphi^*f\wedge \mathrm{d}(\varphi^*\mathrm{d}x^{i_1}\wedge \cdots \wedge \mathrm{d}x^{i_k}) \\
+              &= \varphi^*(\mathrm{d}f\wedge \mathrm{d}x^{i_1}\wedge \cdots \wedge \mathrm{d}x^{i_k})\\
+              &= \varphi^*(\mathrm{d}\omega) 
+            \end{align}
+            \]
+          </li>
+        </ul>
+    </div>
+    <h4>
         Lie derivative
     </h4>
     <div>
@@ -219,6 +253,40 @@
               </li>
             </ul>
           </li>
+          <li style="list-style-type:none;">
+            Proof of theorem: We only check the derivation formula here, i.e. we want to show that 
+            \[\nabla_Y(fX),Z=f\nabla_YX+(Yf)X.\]
+            We start with 
+            \[
+            \begin{align} 
+              &\quad 2g(\nabla_Y fX,Z) \\
+            &= \mathcal{L}_{fX}g(Y,Z)+\mathrm{d}\theta_{fX}(Y,Z)\\
+            &= fXg(Y,Z)-g([fX,Y],Z)-g(Y,[fX,Z])+Y\theta_{fX}(Z)-Z\theta_{fX}(Y)-\theta_{fX}([Y,Z])\\
+            &= fXg(Y,Z)-g(fXY-(Yf)X-fYX,Z)-g(Y,fXZ-(Zf)X-fZX)+Yg(fX,Z)-Zg(fX,Y)-g(fX,[Y,Z])\\
+            &= fXg(Y,Z)-fg([X,Y],Z)+(Yf)g(X,Z)-fg(Y,[X,Z])+(Zf)g(Y,X)+g((Yf)X+fYX,Z)\\
+            &\quad +g(fX,YZ)-g((Zf)X+fZX,Y)-g(fX,ZY)-g(fX,[Y,Z])\\
+            &= fXg(Y,Z)-fg([X,Y],Z)+2(Yf)g(X,Z)-fg(Y,[X,Z])+fg(YX,Z)-fg(ZX,Y) \\
+            &= f\mathcal{L}_Xg(Y,Z)+2(Yf)g(X,Z)+fg(YX,Z)-fg(ZX,Y)
+            \end{align}
+            \]
+            and observe that 
+            \[
+            \begin{align}
+            \mathrm{d}\theta_X(Y,Z)&=Y\theta_X(Z)-Z\theta_X(Y)-\theta_X([Y,Z])\\
+              &=Yg(X,Z)-Zg(X,Y)-g(X,[Y,Z])\\
+              &= g(YX,Z)+g(X,YZ)-g(ZX,Y)-g(X,ZY)-g(X,YZ)+g(X,ZY) \\
+              &= g(YX,Z)-g(ZX,Y)
+            \end{align}
+            \]
+            Therefore,
+            \[
+            \begin{align}
+              2g(\nabla_Y (fX),Z)&= f\mathcal{L}_Xg(Y,Z)+2(Yf)g(X,Z)+f\mathrm{d}\theta_X(Y,Z)\\
+              &= 2fg(\nabla_YX,Z)+2g((Yf)X,Z)\\
+              &=2g(f\nabla_YX+(Yf)X,Z)
+            \end{align}
+            \]
+          </li>
           <li>
             Claim: THe operator \(\nabla\) satisfying the above properties is unique.
           </li>
@@ -242,7 +310,7 @@
               \]
               Hence, the desired \(\nabla\) can be defined by
               \[g(Z,\nabla_YX):= \frac{1}{2}[Xg(Y,Z)+Yg(X,Z)-Zg(X,Y)-g(X,[Y,Z])-g(Y,[X,Z])-g(Z,[X,Y])] \]
-              and it is uniquely determined by the metric \(g\). 
+              and it is uniquely determined by the metric \(g\). This formula agrees with the definition at the beginning.
           </li>
           <li>
             This unique connection is called the Levi-Civita connection, sometimes written \(\nabla^{LC}\) if there are many connections in use.
