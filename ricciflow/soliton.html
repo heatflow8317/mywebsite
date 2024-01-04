@@ -85,89 +85,65 @@
     </div>
 
 <body>
-    <table>
-        <tr>
-            <td>
-                <h4>Decomposition of curvature: the statement</h4>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Let \(Rm\) works like a section of \(\mathcal{E}=Sym^2(\wedge^2 T^*M)\) as follows: 
-                for any \(\phi, \psi\in \wedge^2 T^*M\), define
-                \[Rm(\phi, \psi)=R_{ijlk}\phi^{ij}\psi^{kl}.\]
-                Uhlenbeck's trick tells us
-                \[(*): \partial_t R_{abcd}=2(B_{abcd}-B_{abdc}+B_{acbd}-B_{adbc})\]
-                where \( B_{abcd}=-R^e_{fab}R^f_{ecd} \). Suppose now \(M\) is of dimension 3, then we actually have the basis
-                \[\{e_1\wedge e_2, e_2\wedge e_3, e_3 \wedge e_1\}\]
-                for \(\wedge^2T^*M\), where \(\{e_1, e_2, e_3\}\) is an orthonormal basis of \(TM\).
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Diagoanlize \(Rm\) in \(\mathcal{E}\) with the basis \(\{e_1\wedge e_2, e_2\wedge e_3, e_3 \wedge e_1\}\),
-                (*) then becomes
-                \[\frac{\mathrm{d}}{\mathrm{d} t}\left(\begin{array}{ccc}\lambda_1&0&0\\0&\lambda_2&0\\0&0&\lambda_3
-                 \end{array}\right)=\left(\begin{array}{ccc}\lambda_1^2+\lambda_2\lambda_3&0&0\\0&\lambda_2^2+\lambda_3\lambda_1&0
-                 \\0&0&\lambda_3^2+\lambda_1\lambda_2\end{array} \right).\]
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h4>
-                    Ricci and scalar curvature
-                </h4>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                We claim that:
-                <p>
-                    In the above setting, we have
-                    \[Rc=\frac{1}{2}\left(\begin{array}{ccc}\lambda_2+\lambda_3&0&0\\0&\lambda_3+\lambda_1&0
-                    \\0&0&\lambda_1+\lambda_2\end{array} \right)\]
-                    and
-                    \[R=\lambda_1+\lambda_2+\lambda_3.\]
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Proof of claim:
-                <p>
-                    Recall that \(R_{ij}=\sum_pR_{ippj}\), so \(R_{11}=R_{1221}+R_{1331}\). Under this algebraic setting,
-                    namely we consider the space of 2-vectors instead of the usual tangent vectors,  we modify our definition 
-                    of the sectional curvature to be
-                    \[K(e_1,e_2)=\frac{R_{1221}}{||e_1\wedge e_2||^2}.\]
-                    Since \(||e_1\wedge e_2||^2=||e_1\otimes e_2-e_2\otimes e_1||^2=2\), we actually have
-                    \[K(e_1,e_2)=2R_{1221}\]
-                    where we did defined \(K(e_1,e_2)=R_{1221}\) before. Hence,
-                    \[R_{11}=\frac{1}{2}(K(e_1\wedge e_2)+K(e_1, e_3))=\frac{1}{2}(\lambda_3+\lambda_2).\]
-                </p>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <h4>
-                    Kulkarni-Nomizu product, Einstein tensor and Weyl tensor.
-                </h4>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                We define the Einstein tensor to be the traceless part of the Ricci tensor: 
-                \[E=Rc^\circ=Rc-\frac{1}{n}Rg_{ij}.\]
-                We define the Kulkarni-Nomizu product of symmetric tensors as follows:
-                \[\alpha \bigcirc\mspace{-10.5pt}\wedge\mspace{3pt} \beta=
-                \alpha_{ik}\beta_{jl}+\alpha_{jl}\beta_{ik}-\alpha_{jk}\beta_{il}-\alpha_{il}\beta_{jk}.\]
-                We define the Weyl tensor \(W\) to be:
-                \[W=Rm-\frac{1}{n-2}Rc^\circ \bigcirc\mspace{-10.5pt}\wedge\mspace{3pt} g
-                 - \frac{R}{2n(n-1)}g\bigcirc\mspace{-10.5pt}\wedge\mspace{3pt} g=
-                 Rm-\frac{1}{n-2}Rc \bigcirc\mspace{-10.5pt}\wedge\mspace{3pt} g
-                 + \frac{R}{2(n-1)(n-2)}g\bigcirc\mspace{-10.5pt}\wedge\mspace{3pt} g.\]
-            </td>
-        </tr>
-    </table>
+<header>
+    Ricci soliton
+</header>
+<div>
+    <ul style="list-style-type:none;">
+        <li>
+            Let \((M, g_0)\) be a Riemannian manifold. Suppose \(g(t)\) is a Ricci flow such that \(g(0)=g_0\) and there
+            exists some scaling factor \(\sigma(t)\) with \(\sigma(0)=1\) and one-parameter family of diffeomorphism \(\varphi(t)\) on \(M\) such 
+            that 
+            \[g(t)=\sigma(t)\varphi(t)^*g_0.\]
+        </li>
+        <li>
+            Claim: The following equation holds:
+            \[\partial_t g(t) = \dot{\sigma}\varphi(t)^*g_0+\sigma\varphi(t)^*\mathcal{L}_{X(t)}g_0\]
+            where \(X(t)\) is a vector field such that \(X(t)=\frac{\mathrm{d}}{\mathrm{d}t}\varphi(t)\). Further,
+            if \(X(0)=\nabla^{g_0} f\), then we have
+            \[R_{ij}+\nabla_i\nabla_j f + \frac{\epsilon}{2}g_{ij}=0\]
+            at time \(0\), where \(\epsilon=\dot{\sigma}\) is a constant for all \(t\).
+        </li>
+        <li>
+            Proof of claim: we observe that for any \(t=t_0\), we have
+            \[
+            \begin{align}
+                \frac{\partial}{\partial t}\bigg|_{t=t_0} \varphi(t)^*g &= \lim_{s\rightarrow 0}
+                \frac{\varphi(t_0+s)^*-\varphi(t_0)^*}{s}g_0 \\
+                &=\lim_{s\rightarrow 0}
+                \frac{\varphi(t_0+s)^*(\varphi(t_0)^{-1})^*-id}{s}\varphi(t_0)^*g_0 \\
+                &= \lim_{s\rightarrow \infty}  \frac{(\varphi(t_0)^{-1}\varphi(t_0+s))^*-id}{s}\varphi(t_0)^*g_0 \\
+                &= \mathcal{L}_{\frac{\partial}{\partial t}|_{t=t_0}\varphi(t_0)^{-1}\varphi(t)}\varphi(t_0)^*g_0\\
+                &= \mathcal{L}_{(\varphi(t_0)^{-1})_*\frac{\partial}{\partial t}|_{t=t_0}\varphi(t)}\varphi(t_0)^*g_0\\
+                &= \mathcal{L}_{\varphi(t_0)^*\frac{\partial}{\partial t}|_{t=t_0}\varphi(t)}\varphi(t_0)^*g_0\\
+                &= \varphi(t_0)^*\mathcal{L}_{\frac{\partial}{\partial t}|_{t=t_0}\varphi(t)}g_0\\
+                &= \varphi(t_0)^*\mathcal{L}_{X(t_0)}g_0\\
+            \end{align}
+            \]
+            Hence, by using product rule, we deduce that 
+            \[ 
+            \begin{align} 
+                \partial_t g(t) &= \dot{\sigma}\varphi(t)^*g_0 + \sigma \varphi(t)^* \mathcal{L}_{X(t)}g_0 \\
+                -2Ric(g_0)&=  \epsilon g_0 + \mathcal{L}_{X(0)}g_0 \\
+                -2R_{ij} &= \epsilon g_{ij} + \nabla_i X_j + \nabla_j X_i \\
+                -2R_{ij} &= \epsilon g_{ij} + 2\nabla_i\nabla_j f. \\
+            \end{align}
+            \]
+        </li>
+        <li>
+            Conversely, given a metric \(g_0\), if it satisfies the Ricci gradient soliton equation above, then
+            we can actually construct a Ricci gradient soliton.
+        </li>
+        <li>
+            Claim: Define \(\tau(t)=\epsilon t+1, X(t)=\frac{1}{\tau (t)}\nabla^{g_0}f, \varphi(t): X(t)=
+            \frac{\mathrm{d}}{\mathrm{d} t}\varphi(t), f(t)=\varphi(t)^*f, g(t)=\varphi(t)^*g_0\), then \(g(t)\)
+            solves the Ricci flow equation.
+        </li>
+        <li>
+            Proof of claim:
+        </li>
+    </ul>
+</div>
 </body>
 </body>
 </html>
