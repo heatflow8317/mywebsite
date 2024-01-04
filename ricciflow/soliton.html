@@ -136,11 +136,71 @@
         </li>
         <li>
             Claim: Define \(\tau(t)=\epsilon t+1, X(t)=\frac{1}{\tau (t)}\nabla^{g_0}f, \varphi(t): X(t)=
-            \frac{\mathrm{d}}{\mathrm{d} t}\varphi(t), f(t)=\varphi(t)^*f, g(t)=\varphi(t)^*g_0\), then \(g(t)\)
+            \frac{\mathrm{d}}{\mathrm{d} t}\varphi(t), f(t)=\varphi(t)^*f, g(t)=\tau(t)\varphi(t)^*g_0\), then \(g(t)\)
             solves the Ricci flow equation.
         </li>
         <li>
-            Proof of claim:
+            Proof of claim: we first observe how to scale a connection: suppose \(\nabla^g\) is the Levi-Civita connection for
+            \(g\) and \(\nabla^{kg}\) is the Levi-Civita connection for \(kg\) where \(k\) is a contant in space. By the definition
+            of gradient, for all smooth function \(f\) and smooth vector field \(X\) we have
+            \[kg(\nabla^{kg}f, X) =Xf\]
+            and hence
+            \[g(k\nabla^{kg}f, X) = Xf = g(\nabla^g f, X).\]
+            This implies
+            \[\nabla^{kg}=\frac{1}{k}\nabla^g.\]
+            We calculate that 
+            \[ 
+            \begin{align}
+                \partial_t g(t) &= \epsilon \varphi(t)^*g_0 + \tau(t)\frac{\mathrm{d}}{\mathrm{d} t} \varphi(t)^*g_0\\
+                &= \epsilon \varphi(t)^*g_0  +
+                \tau(t)\varphi(t)^*\mathcal{L}_{X(t)}g_0\\
+                &= \frac{\epsilon}{\tau(t)}g(t) +
+                \tau(t)\mathcal{L}_{\varphi(t)^*X(t)}\varphi(t)^*g_0  \\
+                &=\frac{\epsilon}{\tau(t)}g(t)  +
+                    \tau(t) \mathcal{L}_{\frac{1}{\tau(t)}\varphi(t)^*\nabla^{g_0}f(0)} \frac{1}{\tau(t)}g(t)\\
+                &=\frac{\epsilon}{\tau(t)}g(t) +
+                    \mathcal{L}_{\frac{1}{\tau(t)}\nabla^{\varphi(t)^*g_0}f(t)} g(t) \\
+                &=\frac{\epsilon}{\tau(t)}g(t)  +
+                \mathcal{L}_{\nabla^{\frac{1}{\tau(t)}\varphi(t)^*g_0}f(t)} g(t) \\
+                &=\frac{\epsilon}{\tau(t)}g(t) +
+                \mathcal{L}_{\nabla^{g(t)}f(t)} g(t). \\
+            \end{align}
+            \]
+            On the other hand,
+        \[ 
+        \begin{align}
+            -2Ric(g(t))&= -2\varphi(t)^*Ric(g_0) \\
+                &= \varphi^*(t) \partial_t g(t)\\
+                &= \varphi(t)^* (\epsilon g_0 + \mathcal{L}_{\nabla^{g_0}f(0)}g_0) \\
+                &= \frac{\epsilon}{\tau(t)}g(t)+  \varphi(t)^*\mathcal{L}_{\nabla^{g_0}f(0)}g_0 \\
+                &= \frac{\epsilon}{\tau(t)}g(t)+  \mathcal{L}_{\varphi(t)^*\nabla^{g_0}f(0)} \varphi(t)^*g_0 \\
+                &= \frac{\epsilon}{\tau(t)}g(t)+  \mathcal{L}_{\nabla^{\varphi(t)^*g_0}f(t)} \frac{1}{\tau(t)}g(t) \\
+                &= \frac{\epsilon}{\tau(t)}g(t)+  \mathcal{L}_{\frac{1}{\tau(t)}\nabla^{\varphi(t)^*g_0}f(t)} g(t) \\
+                &= \frac{\epsilon}{\tau(t)}g(t)+  \mathcal{L}_{\nabla^{\tau(t)\varphi(t)^*g_0}f(t)} g(t) \\
+                &= \frac{\epsilon}{\tau(t)}g(t)+  \mathcal{L}_{\nabla^{g(t)}f(t)} g(t) \\
+                &= \partial_t g(t).
+        \end{align}
+        \]
+        Hence \(g(t)\) is a gradient soliton. In the above calculations, we have obtained
+        \[-2Ric(g(t))=\frac{\epsilon}{\tau(t)}g(t)+\mathcal{L}_{\nabla^{g(t)}f(t)}g(t).\]
+        Locally this can be written as 
+        \[R_{ij}+\nabla_i\nabla_j f + \frac{\epsilon}{2\tau} g_{ij}=0\]
+        for all \(t\) such that \(\tau(t)>0\). 
+        </li>
+        <li>
+            Claim: We have
+            \[\frac{\partial f}{\partial t} (t) = \bigg|\nabla^{g(t)}f(t) \bigg|^2_{g(t)}.\]
+        </li>
+        <li>
+            Proof of claim: 
+            \[ 
+            \begin{align}
+            \frac{\partial f}{\partial t} &= g_0(\nabla^{g_0}f(0), \frac{\partial \varphi}{\partial t} )\\
+                &= g_0(\nabla^{g_0}f(0), \frac{1}{\tau}\nabla^{g_0}f(0) )\\
+                &= \frac{1}{\tau} \bigg|\nabla^{g_0}f(0) \bigg|^2_{g_0}. \\
+                &= \frac{1}{\tau^2}\varphi(-t)^* \bigg|\nabla^{g_0}f(0) \bigg|^2_{g_t}.
+            \end{align}
+            \]
         </li>
     </ul>
 </div>
