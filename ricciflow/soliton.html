@@ -195,10 +195,16 @@
             Proof of claim: 
             \[ 
             \begin{align}
-            \frac{\partial f}{\partial t} &= g_0(\nabla^{g_0}f(0), \frac{\partial \varphi}{\partial t} )\\
-                &= g_0(\nabla^{g_0}f(0), \frac{1}{\tau}\nabla^{g_0}f(0) )\\
-                &= \frac{1}{\tau} \bigg|\nabla^{g_0}f(0) \bigg|^2_{g_0}. \\
-                &= \frac{1}{\tau^2}\varphi(-t)^* \bigg|\nabla^{g_0}f(0) \bigg|^2_{g_t}.
+            \frac{\partial f}{\partial t}(x,t) &= \frac{\partial}{\partial t} f\circ \varphi(t)(x)\\
+            &= g_0(\nabla^{g_0}f(0), \frac{\partial \varphi}{\partial t} )(x)\\
+                &= g_0(\nabla^{g_0}f(0), \frac{1}{\tau}\nabla^{g_0}f(0) )(\varphi(t)(x))\\
+                &= \frac{1}{\tau} g_0(\nabla^{g_0}f(0), \nabla^{g_0}f(0) )(\varphi(t)(x)) \\
+                &= \frac{1}{\tau} \varphi(t)^* g_0 (\nabla^{g_0}f(0), \nabla^{g_0}f(0))(x)\\
+                &= \frac{1}{\tau^2}g(t)(\nabla^{\varphi(t)^*g_0}f(t),\nabla^{\varphi(t)^*g_0}f(t) )\\
+                &= \frac{1}{\tau^2}g(t)(\nabla^{\frac{1}{\tau}g(t)}f(t), \nabla^{\frac{1}{\tau}g(t)}f(t))\\
+                &= \frac{1}{\tau^2}g(t)(\tau\nabla^{g(t)}f(t), \tau\nabla^{g(t)}f(t))\\
+                &= g(t)(\nabla^{g(t)}f(t),\nabla^{g(t)}f(t) )\\
+                &= |\nabla^{g(t)}f(t)|^2_{g(t)}
             \end{align}
             \]
         </li>
