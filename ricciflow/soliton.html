@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <base href="..">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css"/>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+    </script>
+    <title>Ricci Flow</title>
+</head>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    * {box-sizing: border-box;}
+    
+    .header {
+      overflow: hidden;
+      background-color: #f8f8f885;
+      padding: 20px 10px;
+    }
+    
+    .header a {
+      float: left;
+      color: #050d38;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px; 
+      line-height: 25px;
+      border-radius: 4px;
+    }
+    
+    .header a.logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+    
+    .header a:hover {
+      background-color: #ffffff;
+      color: black;
+    }
+    
+    .header a.active {
+      background-color: #00baff;
+      color: black;
+    }
+    
+    .header-right {
+      float: right;
+    }
+    
+    @media screen and (max-width: 500px) {
+      .header a {
+        float: none;
+        display: block;
+        text-align: left;
+      }
+      
+      .header-right {
+        float: none;
+      }
+    }
+
+    body{
+    background-color: #f8f8f885;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #000000; 
+    text-align:left;
+    font-family:'Comic Sans MS';
+    /*font-family:'Roboto',sans-serif;*/
+    font-size:16pt;
+    line-height:1.5em;
+    margin: 60px auto;
+    width: 1000px;
+    }
+    </style>
+    </head>
+    <body>
+    
+    <div class="header">
+        <a class="active" href="index.html#notes">Back to Website</a>
+    </div>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <h4>Decomposition of curvature: the statement</h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Let \(Rm\) works like a section of \(\mathcal{E}=Sym^2(\wedge^2 T^*M)\) as follows: 
+                for any \(\phi, \psi\in \wedge^2 T^*M\), define
+                \[Rm(\phi, \psi)=R_{ijlk}\phi^{ij}\psi^{kl}.\]
+                Uhlenbeck's trick tells us
+                \[(*): \partial_t R_{abcd}=2(B_{abcd}-B_{abdc}+B_{acbd}-B_{adbc})\]
+                where \( B_{abcd}=-R^e_{fab}R^f_{ecd} \). Suppose now \(M\) is of dimension 3, then we actually have the basis
+                \[\{e_1\wedge e_2, e_2\wedge e_3, e_3 \wedge e_1\}\]
+                for \(\wedge^2T^*M\), where \(\{e_1, e_2, e_3\}\) is an orthonormal basis of \(TM\).
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Diagoanlize \(Rm\) in \(\mathcal{E}\) with the basis \(\{e_1\wedge e_2, e_2\wedge e_3, e_3 \wedge e_1\}\),
+                (*) then becomes
+                \[\frac{\mathrm{d}}{\mathrm{d} t}\left(\begin{array}{ccc}\lambda_1&0&0\\0&\lambda_2&0\\0&0&\lambda_3
+                 \end{array}\right)=\left(\begin{array}{ccc}\lambda_1^2+\lambda_2\lambda_3&0&0\\0&\lambda_2^2+\lambda_3\lambda_1&0
+                 \\0&0&\lambda_3^2+\lambda_1\lambda_2\end{array} \right).\]
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>
+                    Ricci and scalar curvature
+                </h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                We claim that:
+                <p>
+                    In the above setting, we have
+                    \[Rc=\frac{1}{2}\left(\begin{array}{ccc}\lambda_2+\lambda_3&0&0\\0&\lambda_3+\lambda_1&0
+                    \\0&0&\lambda_1+\lambda_2\end{array} \right)\]
+                    and
+                    \[R=\lambda_1+\lambda_2+\lambda_3.\]
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Proof of claim:
+                <p>
+                    Recall that \(R_{ij}=\sum_pR_{ippj}\), so \(R_{11}=R_{1221}+R_{1331}\). Under this algebraic setting,
+                    namely we consider the space of 2-vectors instead of the usual tangent vectors,  we modify our definition 
+                    of the sectional curvature to be
+                    \[K(e_1,e_2)=\frac{R_{1221}}{||e_1\wedge e_2||^2}.\]
+                    Since \(||e_1\wedge e_2||^2=||e_1\otimes e_2-e_2\otimes e_1||^2=2\), we actually have
+                    \[K(e_1,e_2)=2R_{1221}\]
+                    where we did defined \(K(e_1,e_2)=R_{1221}\) before. Hence,
+                    \[R_{11}=\frac{1}{2}(K(e_1\wedge e_2)+K(e_1, e_3))=\frac{1}{2}(\lambda_3+\lambda_2).\]
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h4>
+                    Kulkarni-Nomizu product, Einstein tensor and Weyl tensor.
+                </h4>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                We define the Einstein tensor to be the traceless part of the Ricci tensor: 
+                \[E=Rc^\circ=Rc-\frac{1}{n}Rg_{ij}.\]
+                We define the Kulkarni-Nomizu product of symmetric tensors as follows:
+                \[\alpha \bigcirc\mspace{-10.5pt}\wedge\mspace{3pt} \beta=
+                \alpha_{ik}\beta_{jl}+\alpha_{jl}\beta_{ik}-\alpha_{jk}\beta_{il}-\alpha_{il}\beta_{jk}.\]
+                We define the Weyl tensor \(W\) to be:
+                \[W=Rm-\frac{1}{n-2}Rc^\circ \bigcirc\mspace{-10.5pt}\wedge\mspace{3pt} g
+                 - \frac{R}{2n(n-1)}g\bigcirc\mspace{-10.5pt}\wedge\mspace{3pt} g=
+                 Rm-\frac{1}{n-2}Rc \bigcirc\mspace{-10.5pt}\wedge\mspace{3pt} g
+                 + \frac{R}{2(n-1)(n-2)}g\bigcirc\mspace{-10.5pt}\wedge\mspace{3pt} g.\]
+            </td>
+        </tr>
+    </table>
+</body>
+</body>
+</html>
